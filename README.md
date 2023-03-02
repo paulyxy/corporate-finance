@@ -20,10 +20,10 @@
 
 # Step 1: Launch R
 
-# Step 2: for week 1, issue the following R code
-#         source('https://github.com/paulyxy/corporate-finance/blob/main/week1.txt')    
-#         for week 2, 
-#         source('https://github.com/paulyxy/corporate-finance/blob/main/week2.txt')    
+# Step 2: for week 5, issue the following R code
+
+infile<-"https://raw.githubusercontent.com/paulyxy/corporate-finance/main/week5.txt"
+source(infile)
 
 # Contact: paulyxy@gmail.com
 
