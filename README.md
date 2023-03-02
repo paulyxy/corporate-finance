@@ -20,9 +20,10 @@
 
 # Step 1: Launch R
 
-# Step 2: for week 5, issue the following R code
+# Step 2: for week 5, issue the following 2 lines of R code
 
 infile<-"https://raw.githubusercontent.com/paulyxy/corporate-finance/main/week5.txt"
+
 source(infile)
 
 # Contact: paulyxy@gmail.com
