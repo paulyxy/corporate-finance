@@ -1,18 +1,22 @@
-source('http://datayyy.com/cf2/sourceAll.txt')
-
+.path<<-'https://raw.githubusercontent.com/paulyxy/corporate-finance/main/'
+source(paste0(.path,'sourceAll.txt'))
 .cf<-function(){
 "
  *------------------------------------------------------*
  * FNCE311                        Spring 2023 by Yan    *
  *------------------------------------------------------*
- * .c1  Introduction          .c20 R basics (optional)  *
+ * .c1  Introduction           .c20 R basics (optional) *
  * .c2  Present value                                   *
+ * .c3  Stock & Bond valuation: Perpetuity/Annuity      *
+ * .c4  Capital budgeting                               *
  *------------------------------------------------------*
- * >.c2       # go to chapter 2                         *
- * >.uu       # go to the utility menu                  *
- * >.cf       # back to this menu                       *
+ * >.c4      # go to chapter 4                          *
+ * >.uu      # go to the utility menu                   *
+ * >.cf      # back to this menu                        *
  *------------------------------------------------------*
+
 ";.cf_()}
+
 
 .cf_<-function(){
 cat("
@@ -20,16 +24,19 @@ cat("
  *------------------------------------------------------*
  * FNCE311                        Spring 2023 by Yan    *
  *------------------------------------------------------*
- * .c1  Introduction          .c20 R basics (optional)  *
+ * .c1  Introduction           .c20 R basics (optional) *
  * .c2  Present value                                   *
+ * .c3  Stock & Bond valuation: Perpetuity/Annuity      *
+ * .c4  Capital budgeting                               *
  *------------------------------------------------------*
- * >.c2       # go to chapter 2                         *
- * >.uu       # go to the utility menu                  *
- * >.cf       # back to this menu                       *
+ * >.c4      # go to chapter 4                          *
+ * >.uu      # go to the utility menu                   *
+ * >.cf      # back to this menu                        *
  *------------------------------------------------------*
+
 ")}
 
-.whichHW<<-0
+.whichHW<<-2
 
 .utilities<<-.utilities1
 .uu<-.utilities1
