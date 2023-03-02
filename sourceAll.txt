@@ -1,7 +1,13 @@
-source('http://datayyy.com/cf2/allCode.txt')
-source('http://datayyy.com/cf2/allChapters.txt')
-source('http://datayyy.com/cf2/allUtilityFunctions.txt')
-source('http://datayyy.com/cf2/all_ice.txt')
-source('http://datayyy.com/cf2/all_getdata.txt')
-source('http://datayyy.com/cf2/inClassEx.txt')
+.path<<-'https://raw.githubusercontent.com/paulyxy/corporate-finance/main/'
+
+source(paste0(.path,'allCode.txt'))
+
+source(paste0(.path,'allChapters.txt'))
+
+source(paste0(.path,'allUtilityFunctions.txt'))
+source(paste0(.path,'all_ice.txt'))
+source(paste0(.path,'all_getdata.txt'))
+source(paste0(.path,'inClassEx.txt'))
+
+
 
