@@ -1,4 +1,5 @@
-source('http://datayyy.com/cf2/sourceAll.txt')
+.path<<-'https://raw.githubusercontent.com/paulyxy/corporate-finance/main/'
+source(paste0(.path,'sourceAll.txt'))
 
 .cf<-function(){
 "
