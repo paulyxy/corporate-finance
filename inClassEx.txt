@@ -1,0 +1,2194 @@
+" i chap  Description 
+  - ----  ------------------------------
+  1   1   Videos on R installation !
+  2   1   Exponential vs. logarithm functions
+  3   2   Time-line 
+  4   2   Future  value function (for a given present value)
+  5   2   Present value function (for a given future  value) 
+  6   2   Excel pv() function 
+  7   2   Excel sign convention 
+  8   2   PVIF (Present value interest factor) table 
+  9   2   Simple interest vs. compounded interest
+ 10   2   NPV calculation 
+ 11   2   Normal projects
+ 12   2   NPV vs. discount rate
+ 13   2   A true NPV function: NPVyan 
+ 14   2   Definition of an effective rate
+ 15   2   Banks' quotations
+ 16   2   Excel effect() function for EAR
+ 17   2   Effective rate: my 2-step approach
+ 18   2   Effective annual rate: Excel effect() function
+ 19   2   Effective rate: formula approach
+ 20   3   Effective rate: VBA effectYan()
+ 21!  3   Effective rate: 7 ways
+ 22   3   pv(perpetuity): 2 method
+ 23   3   Derivation of the formula for pv(perpetuity)
+ 24   3   Growing perpetuity
+ 25   3   Gordon growing model 
+ 26   3   pv(annuity) formula
+ 27   3   Derivation of PV(annuity): optional 
+ 28   3   pv(growing annuity)
+ 29   3   fv(annuity)
+ 30   3   Lottery
+ 31   3   What is John Doe's monthly mortgage payment 
+ 32   3   NPV rule
+ 33   3   pv of a growing annuity without a formula 
+ 34   3   72-rule [ 70 rule ]
+ 35   3   VBA for present value of a growing annuity 
+ 36   3   Excel solver
+ 37   3   A general formula [instead of Excel 5 functions]
+ 38   4   lottery: pv(lottery)
+ 39   4   lottery: discount rate of a winning lottery
+ 40   4   mortgage
+ 41   4   NPV rule: one example
+ 42   4   Exhibit 4.3  (generate both graphs)
+ 43   4   Finding multiple IRRs 
+ 44   4   Profitability Index: one example
+ 45   4   Payback period estimation
+ 46   4   review: a simple example
+ 47   5   Yield curve
+ 48   5   total return 
+ 49   5   Effective annual return 
+ 50   5   Zero-coupon bond vs. coupon-bond
+ 51   5   Bond price: Excel price() Excel function 
+ 52   5             : bondPrice() # my VBA function 
+ 53   5   Duration  : example #1
+ 54   5             : of an investment
+ 55   5             : Excel duration() function 
+ 56   5             : durationYan() # my VBA
+ 57   5   norminal rate vs. real rate
+ 58   0   Getting data from yahoo!Finance
+ 59   6   VBA 4 meanGivenProb
+ 60   6   VBA 4 varGivenProb
+ 61   6   Method 2 for Method 1: for given probs and returns
+ 62   6   m2_4_m1 function:      for given probs and returns
+ 63   7   density vs. cumulative density distribution
+ 64   7   normal distribution: density vs. cumulative density distributions
+ 65   7   Replicate Exhibit 7.2
+ 66   7   Excel chisq.test function: whether a data set follow a specific distribution
+ 67   7   Do IBM daily returns follow a normal distribution?
+ 68   7   Do IBM daily returns follow a normal distribution? (method II)
+ 69   7   VBA 4 a geometric mean
+ 70       Google drive to share a document
+ 67   8   number of stocks vs. portfolio risk 
+ 68   9   S&P500 from monthly price to annual returns
+ 69   9   Getting historical risk-free rate 
+ 70   9   Confidence interval 
+ 71  10   CAPM definition, regression etc. 
+ 72  10   What is the market risk for IBM?
+ 73  10   My two videos related to a linear regression
+ 74  11   Tests for equal variances and equal means
+ 75  11   Sharpe ratio, Treynor Ratio
+ 76  11   Sortino ratio, LPSD (Lower Partial Standard Deviation)
+ 77  11   VBA 4 LPSD
+ 78  11   VBA 4 LPSD help
+ 79  11   Sortino ratio for IBM 
+ 80  12   Market efficiency: January Effect 
+ 81  12   52-week high-low trading strategy 
+ 82  12   Market timing: Treynor Mazuy model (1997)
+ 83  14   Manually get Balance-sheet and income statement
+ 84  14   .getBS10 and .getIS10 for 10 companies
+ 85  14   .getBSannual and .getISannual functions
+"
+
+.inClassEx_<-function(i){
+   if(i<=.n_InClassEx){
+      x<-paste('cat(.ICE',i,')',sep='')
+      .runText(x)
+   }else{
+       cat("Invalid number \n")
+   }
+}
+
+.ICE1<-"Videos on R installation
+///////////////////////////////////////////////////////
+
+ How to download and install R (6m39s) [for windows)
+    https://www.youtube.com/watch?v=ZoPJGmpYJzw
+
+ Programming in R - Getting Started - Installing R and RStudio on a Mac (5m59s)
+    https://www.youtube.com/watch?v=Ywj6yNfc5nM
+
+///////////////////////////////////////////////////////
+"
+
+.ICE2<-"exponential vs. logarithm functions
+///////////////////////////////////////////////////////
+1) plus and minus are a pair
+     a + 1 =b    ==> b-1 = a
+     x-12  = y   ==> y+12 = x
+
+2) multiplication and division are a pair 
+
+     a*10 = b   ==> b/10 =a
+     x/100 = y  ==> x= y*100 
+
+3) exponential and logarithm are a pair
+
+   a)  Base is 10
+       10^2=100            =>  log10(100) =2
+     > 10^2.456 = 285.7591  => log10(285.7591) =2.456
+
+   b) base is e.  What is the value of e?
+     # using R shown below      > exp(1)  #[1] 2.718282
+     # Using Excel              =exp(1) 2.718281828
+
+    exp(2) = 7.389056   Using R   : log(7.389056) = 2
+                        Using Excel: =ln(7.389056) = 2
+
+///////////////////////////////////////////////////////
+"
+
+.ICE3<-"A time line 
+////////////////////////////////
+  Assume that we borrow $100 for two years
+  the annual interest rate is 10%. 
+  
+  Below is a time line with cash flows. 
+
+   100         10          10+100
+   |-----------|-----------|
+   0           1           2
+
+  We receive $100 at time zero and pay $10 
+  for the next two years, plus $100 at the end of
+  year two. 
+
+////////////////////////////////
+"
+
+.ICE4<-"Future  value function (for a given present value)
+///////////////////////////////////////////////////////
+ To make our calculation a little bit easier,  we use 10% annual 
+    interest rate. If today we deposit $100 into our bank, what 
+    is the value in one year if the annual rate is 10%?
+
+  100     10%            fv=?
+  |----------------------|
+  0                      1
+
+
+  100     10%                    10%
+  |----------------------|-------------------|
+  0                      1                   2
+
+
+  100     10%                    10%                  10%
+  |----------------------|-------------------|-------------------|
+  0                      1                   2                   3
+
+   .................
+
+ Objective: derive the following formula
+            FV=PV*(1+R)^n
+///////////////////////////////////////////////////////
+"
+
+.ICE5<-"  Present value function (for a given future  value) 
+///////////////////////////////////////////////////////
+
+You expect to receive $100 in 5 years. 
+
+    what is the equivalent present value if the annual rate is 2.5%?
+
+    Method I: using the following formula
+                      FV
+            PV =  --------------
+                   (1+R) ^n
+
+///////////////////////////////////////////////////////
+"
+
+.ICE6<-"Excel: Present valuations 
+///////////////////////////////////////////////////////
+    Method II: apply the Excel pv() function 
+
+           =pv(rate,nper,pmt,[fv],[type])
+
+///////////////////////////////////////////////////////
+"
+
+.ICE7<-"Excel sign convention 
+///////////////////////////////////////////////////////
+
+ What is the present value of $100 received in 3 years 
+     with a 5% annual discount rate?
+
+   > 100/(1+0.05)^3
+    [1] 86.38376
+   > 
+ If using Excel, we would have the following result
+    =pv(0.05,3,0,100) => ($86.38)
+
+   The value circled by a pair of parentheses is negative. 
+   Excel sign convention:
+     For a positive future value, we will get a negative present value. 
+     For a negative future value, we will get a positive present value. 
+
+   1) Accounting interpretation
+   2) Excel is designed this way
+
+///////////////////////////////////////////////////////
+"
+
+.ICE8<-"Generate a PVIF (Present value interest factor) table 
+///////////////////////////////////////////////////////
+
+The present value interest factor (PVIF) is a factor that is utilized 
+to provide a simple calculation for determining the present value dollar 
+amount of a sum of money to be received at some future point in time.
+
+          FV
+   PV=   -------                 (1)
+         (1+R)^n
+
+   PV=FV * PVIF(R,n)             (2)
+                       1
+       PVIF(R,n)  =  -----       (3)
+                     (1+R)^n         
+
+   https://www.investopedia.com/terms/p/pvif.asp
+
+   For example, FV=100, R=0.1 n=3. By applying equation (1) 
+                =100/(1+0.1)^3 --> 75.13
+
+   Alternatively, we could use 100*75.13  = 75.13
+          this means that PVIF(0.1,3)=75.13
+   
+   Here is one example 
+       https://www.miniwebtool.com/pvif-calculator/
+
+   Step 1: horizontally generate 0.01, 0.02, .... 
+   Step 2: vertically generate 1, 2, .... 
+   Step 3: enter one formula 
+   Step 4: copy and paste to all cells 
+///////////////////////////////////////////////////////
+"
+
+.ICE9<-"Simple interest vs. compounded interest
+///////////////////////////////////////////////////////
+  For a simple interest rate, we assume that interest payment will 
+     not be reinvested. 
+
+  For example, $100 for 5 years with an annual rate of 10%. 
+      fv1=100*(1+0.1)^n
+
+  For simple interest
+      fv2=100 + 100*0.1*5
+
+///////////////////////////////////////////////////////
+"
+
+.ICE10<-"NPV calculation 
+///////////////////////////////////////////////////////
+Assume that we have the following cash flows. 
+  what is the NPV of the project is the 
+  period discount rate is 10%?
+
+period
+0   -100
+1    50
+2    40
+3    50
+4    50
+5    50
+
+ Method I: NPV is the summation of all PVs
+ Method II: apply the Excel npv() function 
+
+///////////////////////////////////////////////////////
+"
+
+
+.ICE11<-"A normal project
+///////////////////////////////////////////////////////
+A normal project is defined as : cash flows first, then cash inflows
+
+Example of normla projects
+---------------------------
+  -100      50        40         35
+  |----------|---------|---------|
+  0          1         2         3
+
+           -10        -20       40         35
+  |----------|---------|---------|----------|
+  0          1         2         3         4  
+
+Example of non-normla projects
+---------------------------
+  100       -50        -40      -35
+  |----------|---------|---------|
+  0          1         2         3
+
+
+  -100      50        40        -10
+  |----------|---------|---------|
+  0          1         2         3
+///////////////////////////////////////////////////////
+"
+
+
+.ICE12<-"NPV vs. discount rate
+///////////////////////////////////////////////////////
+For a normal project
+-------------------
+   The discount rate increases --> NPV decreases
+   The discount rate decreases --> NPV increases 
+
+In-class exercises
+   Step 1: generate a column of rate
+            0
+           0.05
+
+   Step 2: use the following cash flows
+period
+0   -100
+1    50
+2    40
+3    50
+4    50
+5    50
+
+  Step 3: estimate their NPVs
+  Step 4: draw a graph
+
+///////////////////////////////////////////////////////
+"
+
+.ICE13<-"A true NPV function: NPYyan()
+///////////////////////////////////////////////////////
+
+Step 1: Highlight and copy the following lines 
+------------------------
+Function NPVyan(rate As Single, x As Range) As Variant
+     Dim i, n, n2 As Integer, sum As Single
+     sum = x(1, 1)
+     i = 2
+     n = x.Rows.Count
+     n2 = x.Columns.Count
+     If n > 1 Then
+          Do While i <= n
+              sum = sum + x(i, 1) / (1 + rate) ^ (i - 1)
+              i = i + 1
+          Loop
+      Else
+         Do While i <= n2
+             sum = sum + x(1, i) / (1 + rate) ^ (i - 1)
+              i = i + 1
+          Loop
+      End If
+     NPVyan = sum
+End Function
+-----------------
+
+Step 2: Click \"Developer\" on your menu bar
+Step 3: Click \"VBA\" -> Insert -> Module 
+Step 4: Right click your mouse and paste
+Step 4: Click \"File\" -> Close and Return to Microsoft Excel 
+
+Test: generate cash flows, e.g., A1 contains -100
+----------------------
+        A1   -100
+        A2    50
+        A3    40
+        A4    50
+        A5    50
+        A6    50
+     =npvyan(0.1,A1:A6)
+
+///////////////////////////////////////////////////////
+"
+
+.ICE14<-"Definition of an effective rate
+///////////////////////////////////////////////////////
+ Step 1: draw a time line (based on your time period)
+
+ Step 2: there are only two cash flows
+         a) at the beginning (P1)
+         b) at the end       (P2)
+
+ Step 3: the effective rate is defined as 
+         R=(P2-P1)/P1
+            or
+           P2/P1-1 
+
+ Note: if there are intermidiate cash flows, 
+       'move' them to the end
+
+ Example #1: I bought a house in 2000 at $200,000. Now, its market value is $230,000. 
+             What is my total 3-year return? 230000/200000-1 =0.15
+
+ Example #2: John bought a stock three monghs ago at $10. 
+             Now, its market value is $9.What is his 3-month effective return?
+             9/10-1= -10%
+
+ Example #3: My bank quotes APR 10%, compounded twice per year. 
+             What is my EAR (Effective annual return)?
+            100             5               5
+            |---------------|---------------|
+            0             0.5               1
+
+       Since there are three cash flows instead of two, we have
+        to move the first $5 to the end of the period. 
+            100                             5 + 5 + 5*0.05
+            |---------------|---------------|
+            0             0.5               1
+///////////////////////////////////////////////////////
+"
+
+.ICE15<-"Banks' quotations
+///////////////////////////////////////////////////////
+1) Annual rate is 10%, compounded annually. 
+   The cash flows are shown below. If you borrow $100 at 
+   the beginning of the year. ou pay back 110 at the end 
+   of the year. 
+
+  100                                   10 + 100
+  |---------------------------------------|
+  0                                       1
+
+2) Annual rate is 10%, compounded semiannually. 
+   The cash flows are shown below. 
+
+  100                5                   5 + 100
+  |------------------|---------------------|
+  0                  0.5                   1
+
+3) Annual rate is 10%, compounded quarterly. 
+   The cash flows are shown below. 
+
+  100      2.5        2.5       2.5        2.5+ 100
+  |---------|---------|---------------------|
+  0         3m        6m         9m         1
+
+///////////////////////////////////////////////////////
+"
+
+.ICE16<-"Excel effect() function for EAR
+///////////////////////////////////////////////////////
+  The Excel effect() is the function to calculate EAR (Effective Annual Rate)
+
+   =effect(nominal_rate,npery)
+           Note: nominal rate is be APR (Annual Percentage Rate)
+                 npery  is the compounding frequency, 
+                         1 (annual),
+                         2 (semi-annual),
+                         4 (quarterly),
+                        12 (monthly), and
+                       365 (daily)
+
+   =effect(0.1,2) ==> 0.1025
+
+  The Excel effect() is used to calculate EAR (Effective
+      Annual Rate) for a given APR with its compounding frequency. 
+
+  If the APR  (Annual Percentage Rate) is 10%, compounded semi-annually, 
+    what is its corresponding EAR?
+
+   =Effect(0.1,2) --> 0.1025
+//////////////////////////////////////////////////////
+"
+
+.ICE17<-"Effective rate conversion: my 2-step approach 
+///////////////////////////////////////////////////////
+  just type 
+
+   .explain2stepApproach()
+
+  PDF file: http://datayyy.com/doc_pdf/A_2step_approach_effective_rate.pdf
+
+  Video:    Conversion of effective interest rate (my 2-step approach)
+             https://youtu.be/J2N2z4Vzwbk
+
+//////////////////////////////////////////////////////
+"
+
+
+.ICE19<-"Effective conversion: formula approach
+///////////////////////////////////////////////////////
+  Given information:
+         APR1 (annual percentage 1)
+         m1   (compounding frequency 1)
+         m2   (compounding frequency 2)
+
+  Formula 1: EffectiveRate2 = (1+APR1/m1)^(m1/m2)-1
+ 
+  Formula 2: APR2  = EffectiveRate2 *m2 = [(1+APR1/m1)^(m1/m2)-1]*m2
+
+  Example: APR is 10% compounded semiannually
+           What is APR compounded monthly?
+              Given effective rate is R_semi=0.1/2=0.05
+             effective monthly rate is R_m=(1+0.1/2)^(2/12)-1
+                                        [1] 0.008164846
+    R_semi=0.1/2
+    R_monthly=(1+0.1/2)^(2/12)-1
+
+    pv*(1+R_semi)^2     ==>  110.25
+    pv*(1+R_monthly)^12  ==>  110.25
+
+///////////////////////////////////////////////////////
+"
+
+.ICE20<-"VBA effecYan() function for an effective rate 
+///////////////////////////
+ Step 1: copy the following two functions
+ Step 2: Click 'Developer'
+ Step 3: Click 'VBA'-> insert -> module -> paste there-> back to Excel 
+ Step 4: =effectyanHelp()
+
+
+Function EFFECTyan(APR1 As Variant, m1 As Integer, m2 As Integer) As Variant
+'pyan@geneseo.edu, 2/4/2013,2/15/2022, if m1 or m2 >365 continuously compounded 
+     Dim i, n, roduct As String
+     If m1 > 365 And m2 > 365 Then
+          EFFECTyan = APR1
+     ElseIf m1 > 365 And m2 < 365 Then
+          EFFECTyan = Exp(APR1) ^ (1 / m2) - 1
+     ElseIf m1 < 365 And m2 > 365 Then
+          EFFECTyan = m1 * Log(1 + APR1 / m1)
+     Else
+          EFFECTyan = (1 + APR1 / m1) ^ (m1 / m2) - 1
+     End If
+End Function
+
+Function effectYanHelp() As String
+    effectYanHelp= \"usage: =effectYan(APR1,m1,m2)\"
+End Function
+
+///////////////////////////
+"
+
+.ICE21<-"7 ways: effective rate conversions 
+///////////////////////////////////////////////////////
+For example, APR=10%, compounded semi-annually, 
+             what is its equivalent effective monthly rate?
+
+Method 1: using my 2-step approach
+          http://datayyy.com/doc_pdf/A_2step_approach_effective_rate.pdf
+
+Method 2: apply the following formula
+             ER(n2) = (1+APR1/n1)^(n1/n2)-1
+
+Method 3: using the Excel rate() function
+           Step 1: assume Pv=100
+                   =fv(0.1/2,2,0,100) => -110.25
+           step 2: =rate(4,0,100,-110.25) => 2.4695%
+           [you can verify this result by applying fv=pv(1+R)^n
+
+Method 4: using the Excel solver() function
+          step 1: calculate a fv such as 110.25, i.e., 100 -> 110.25 over 1 year
+          step 2: assume any value for R such as 0.23 in cell A1
+          step 3: in cell A2, type =100*(1+A1)^4
+          step 4: data -> solver -> choose A2 equal to 110.25 by changing the value of A1
+
+Note: it is a good idea to use the following three methods to verify your answers. 
+---------------------------------------------------------------------------------
+Method 5: using my VBA effectYan() and effectYanHelp() functions
+            .vba(20)
+
+Method 6: using my function, just type
+          .effectYan
+
+Method 7: using my online app
+          https://paulyxy-conversions-between-apr-annual-percentage-ra-app-pyksxb.streamlit.app/
+///////////////////////////
+"
+
+.ICE22<-" pv(perpetuity)
+///////////////////////////////////////////////////////
+ Definition of a perpetuity
+   1) same cash flows, 
+   2) at the same interval 
+   3) forever
+   4) assume that the first cash flow happens at the end of the first period
+
+Method I: using pv=fv/(1+R)^i, i=1, 2, ...., a big number
+
+                            c
+Mthod II: pv(perpetuity) = ---  
+                            R
+
+ The frequencies of cash flows and discount rate should be the same. 
+    If C is annual cash flows, then R should be annual discount rate. 
+    If C is the monthly cash flows, then R should be the monthly reate. 
+
+///////////////////////////////////////////////////////
+"
+
+.ICE23<-"Derivation of pv(perpetuity)
+///////////////////////////////////////////////////////
+ Definition of a perpetuity
+   1) same cash flows, 
+   2) at the same interval 
+   3) forever
+   4) the 1st cash flows happens at the end of the 1st period
+
+Assume that the first cash flow happening at the end of the first period. 
+      C            C           C          C
+ PV= ---     + ------   +   ------   +  -----    + ........            (1)
+     (1+R)     (1+R)^2      (1+R)^3     (1+R)^4 
+
+Time both sides of  by  (1+R)
+                       C        C           C           C
+  PV(1+R)   =  C +  ------ +  ----     + -------   +  -----   + .....   (2)
+                     (1+R)    (1+R)^2    (1+R)^3      (1+R)^4
+ (2) - (1)
+
+     PV(1+R) -PV = C
+     PV + PV*R - PV = C
+           C
+      PV= --- 
+           R
+///////////////////////////////////////////////////////
+"
+
+.ICE24<-"Growing perpetuity
+///////////////////////////////////////////////////////
+ Definition of a growing perpetuity
+   1) cash flows grow at a constant rate of g 
+   2) at the same interval 
+   3) forever
+   4) the 1st cash flows happens at the end of the 1st period
+
+
+Method I: using pv=fv/(1+R)^i, i=1, 2, ...., a big number
+                                        C1
+Method II:  PV(growing perpetuity) =  -----
+                                      R - g
+
+   C1 is the next cash flow
+   R  is the period discount rate
+   g  is the period growth rate
+     Again, C1, R and g should have the same frequencies, such as all annual. 
+
+///////////////////////////////////////////////////////
+"
+
+
+.ICE25<-"Gordon growing model 
+///////////////////////////////////////////////////////
+                            D1
+ PV(stock at time 0) =  ----------
+                          R - g
+
+     PV (Stock) price at time zero
+
+     D1 is the dividend at time 1
+
+     R is the cost of equity
+
+     g is the growth rate 
+
+///////////////////////////////////////////////////////
+"
+
+.ICE26<-"Present value of an annuity formula
+///////////////////////////////////////////////////////
+Annuity:
+     1) Same cash flows
+     2) at the same intervals
+     3) for n periods
+        -----------------------
+     4) if the first cash flow happens at the end of the first period
+
+                  C              1
+ PV(annuity)  =  -- [ 1 -   ---------  ]
+                  R          (1+R)^n
+
+ Assume that we would receive $100 at the end of each year 
+     for the next 5 years. What is the present value if the first
+     cash flow happens that the end of the first period with an
+     annual rate of 2.3%?
+///////////////////////////////////////////////////////
+"
+
+.ICE27<-"Derivation of PV(Annuity) (optional)
+///////////////////////////////////////////////////////
+
+This part is optional. 
+Annuity 
+     1) Same cash flows
+     2) at the same intervals
+     3) for n periods
+     4) if C1 at the end of the first period
+
+ Assume that we would receive $100 at the end of each year 
+   for the next 5 years. What is the present value if the first
+   cash flow happens that the end of the first period with an
+   annual rate of 2.3%?
+
+  We can image that we would have two perpetuities:
+    1) we will receive $100 forever with the first cash flow happens 
+          at the end of the first period
+    2) we will pay $100 at the end of each year forever with the first cash flow 
+          happens at the end of n+1 (6) year. 
+
+ True ash flows
+                    C               C               C                          C
+    |---------------|---------------|---------------|----   ,,, ---------------|
+    0               1               2               3                          n  
+ Cash flow of the 1st perpetuity 
+                    C               C               C                   C               C               C --> infinity 
+    |---------------|---------------|---------------|----  .....--------|---------------|---------------|
+    0               1               2               3                   n               n+1            n+1 --> infinity
+ Cash flow of the 2nd perpetuity 
+                                                                                        -C              -C --> infinity 
+    |---------------|---------------|---------------|----  .....--------|---------------|---------------|
+    0               1               2               3                   n               n+1            n+1 --> infinity
+The PV(annuity) will be the summation of those two PV(perpetuity)
+                                     C
+   For the 1st one= PV(perpetuity)= ---
+                                      R                                            -C
+   For the 2nd one: step 1: assume that we are standing at time n: PV(at time n) = ----
+                                                                                    R
+       a negative sign in front of C indicate that it is opposite of C
+                              pv(at time n)         C     1
+       pv(2nd perpetuity) =   -------------   =  -  --*(----)
+                               (1+R)^n              R   (1+R)^n
+  Put them together: PV(annuity) = PV(1st perp) + PV(2nd perp)
+                                   C        C    1          C         1
+                                = ---  -   -- * ---      = -- [ 1 - ------]
+                                   R        R   (1+R)^n     R       (1+R)^n
+///////////////////////////////////////////////////////
+"
+
+.ICE28<-"pv(growing annuity)
+///////////////////////////////////////////////////////
+Constant cash flows
+-------------------
+               c           c           c             c
+    |----------|-----------|-----------|----  ...----|
+    0          1           2           3             n  
+
+Cash flows with a constant growth rate of g
+-------------------------------------------
+               c      c*(1+g)    c*(1+g)^2       c*(1+R)^(n-1)
+    |----------|-----------|-----------|----  ...----|
+    0          1           2           3             n  
+                            c          (1+g)^n
+    pv(growing annuity) =  --- [1  -  ---------]
+                           R-g         (1+R)^n
+
+ If the first cash flow is $100 (happens at the end of the first period). 
+ The annual rate is 10% and the growth rate is 4.5% for 20 years. 
+ What is the present value of this growing annuity?
+      Method I: using the above formula
+      Method II: using Excel to generate 20 cash flows, 20 present values
+                 The summation of the present values
+
+//////////////////////////////////////////////////////
+"
+
+.ICE29<-"Present value vs. future value (annuities)
+///////////////////////////////////////////////////////
+
+  fv=pv*(1+R)^n                       (1)
+                 c           1
+  pv(annuity) = ----*(1-  ------- )   (2)
+                 R        (1+R)^n
+
+
+  fv(annuity) = pv(annuity)*(1+R)^n     
+
+                 c           1
+              = ----*(1-  ------- ) *(1+R)
+                 R        (1+R)^n
+
+                 c           
+              = ----*[(1+R)^n - 1]     (3)
+                 R        
+//////////////////////////////////////////////////////
+"
+
+.ICE30<-"Lottery: what is the rate?
+///////////////////////////////////////////////////////
+
+  The jackpot will reset to $40 million for Friday night's drawing 
+      with a cash option of $28.1 million.
+
+  If there are 30 annual payments with the first payment today, 
+   what is the implied discount rate?
+
+   https://www.usatoday.com/story/money/2020/02/12/winning-lottery-take-lump-sum-annual-payments/4736439002/
+
+//////////////////////////////////////////////////////
+"
+
+.ICE31<-"What is John Doe's monthly mortgage payment?
+///////////////////////////////////////////////////////
+  Assume that John Doe is interested in a house with a price 
+   tag of $200k. The download payment is 20% and he will borrow 
+   the rest.  What is his monthly payment for a 30-year mortgage 
+   with annual rate of 6% compounded monthly?
+
+//////////////////////////////////////////////////////
+"
+
+#Function pvGrowingAnnuity(C As Single, R As Single, g As Single, n As Integer) As Single
+
+.ICE32<-"NPV rule 
+///////////////////////////////////////////////////////
+
+ If NPV(project) > 0 accept the project
+                 < 0 reject the project
+
+//////////////////////////////////////////////////////
+"
+
+.ICE33<-"pv of a growing annuity without a formula 
+/////////////////////////////////////
+
+          c     c(1+g)   c(1+g)^2  
+  |-------|-------|-------| -----       ----|
+  0       1       2       3                 n
+
+  where c is the first cash flow at the end of the, 
+       first period, g is a fixed period growth rate. 
+       the number of the period is n. The discount rate is R. 
+
+  Assume that c=100, g=0.02, R=0.10 and n=30
+
+  Without using a formula, what is the present value of 
+      such a growing annuity?
+
+///////////////////////////////////////////////////////
+"
+
+.ICE34<-"72-rule [ 70 rule ]
+/////////////////////////////////////
+  What Is the Rule of 72?
+     The Rule of 72 is a simple way to determine how long an investment
+     will take to double given a fixed annual rate of interest. 
+
+   By dividing 72 by the annual rate of return, investors obtain a 
+      rough estimate of how many years it will take for the initial
+      investment to duplicate itself.
+
+  1) If the annual rate is 10%. Then it takes 7.2 years. 
+
+  2) If he annual rate is 7.2% per year, then it takes 10 years. 
+/////////////////////////////////////
+"
+
+.ICE35<-"VBA for present value of a growing annuity
+///////////////////////////////////////////////////////
+Function pvGrowingAnnuity(R as Single, n as Integer,C as Single, g As Single) As Single
+     pvGrowingAnnuity = C / (R - g) * (1 - ((1 + g) / (1 + R)) ^ n)
+End Function
+
+Function pvGrowingAnnuityHelp() As String
+     pvGrowingAnnuityHelp=\"usage: =pvGrowingAnnuity(rate,nper,pmt,growthRate)\"
+End Function
+
+/////////////////////////////////////
+"
+
+.ICE36<-"Excel solver
+/////////////////////////////////////
+   The Excel solver is a very useful functionality. Let's look at one 
+       simple example.  Assume that we have the following function. 
+
+       y = 4 + 2*(x-3.5)^2
+
+   Which x will minimize y value? Obviously, when x=3.5, the 
+     second term will be zero, and y will be 4. When x is not 3.5,
+     the second term will be a positive value. 
+
+We can use the Excel solver() to get the result. 
+  
+  Choose one cell, enter any value for x, such as 1
+   Choose another cell, then the above formula. 
+   You should have a value of 16.5
+
+   Click -> 'Data' -> 'Solver'   -> [ choose y's cell for your 'set objective']
+         -> [choose Min for To:] -> [choose x's cell for 'By Changing Variable Cells:]       
+
+///////////////////////////
+"
+
+.ICE37<-"A general formula [instead of Excel 5 functions]
+///////////////////////////
+
+  pv = pv(annuity) + pv(fv)                 (1)
+
+        C           1         fv
+  pv = ---[1 -  ------  ]+   -----          (2)
+        R       (1+R)^n      (1+R)^n
+    
+ Step 1: launch Excel and copy the following two columns 
+
+fv_	100
+c_	0
+r_	0.1
+n_	10
+type_	0
+
+  Step 2: define five names
+
+  Step 3: Choose a cell and copy and paste the following line. 
+          =c_/r_*(1-1/(1+r_)^n_)*(1+type_*r_)+fv_/(1+r_)^n_
+
+  Step 4: using Solver() to get any unknow. 
+         
+///////////////////////////
+"
+
+.ICE38<-" lottery: pv(lottery)
+///////////////////////////////////////////
+
+ If someone won $10 million and the discount rate is 5% per year,
+   what is its present value?
+
+   Note #1: 30 equal payments
+
+   Note #2: the first payment happens today. 
+
+///////////////////////////////////////////
+"
+
+.ICE39<-"lottery: discount rate of a winning lottery
+///////////////////////////////////////////
+ 
+ LUMP SUM: Winners can accept a one-time cash payout. In the case of the
+   $202 million jackpot, the winner could take $142.2 million in cash.
+
+Total value $202
+30 equal payments
+The first one is today
+what is the R?
+
+ The jackpot will reset to $40 million for Friday night's drawing 
+    with a cash option of $28.1 million.
+
+ https://www.usatoday.com/story/money/2020/02/12/winning-lottery-take-lump-sum-annual-payments/4736439002/
+
+///////////////////////////////////////////
+"
+
+.ICE40<-"mortgage monthly payments
+///////////////////////////////////////////
+ 1) price is 425,000
+ 2) 20% down payment
+ 3) Loan term: 30 years
+ 4) APR 6.71%
+
+ What is the monthly payment?
+
+    https://www.bankrate.com/mortgages/mortgage-calculator/
+
+///////////////////////////////////////////
+"
+
+.ICE41<-"NPV Rule: one example
+///////////////////////////////////////////
+
+Assume that we have the following cash flows. 
+
+0	-500
+1	100
+2	200
+3	245
+4	145
+5	200
+
+ If the discuount rate is 10% per year, what is the NPV?
+
+///////////////////////////////////////////
+"
+
+.ICE335<-"Finding multiple IRRs 
+///////////////////////////
+ Assume that we have a set of cash flows. 
+     Step 1: Generate a column of R
+
+     Step 2: Generate a column of NPV
+
+     Step 4: Finding the locations when NPV changing signs. 
+              Use the rate as a guess  
+
+ Below is one example. 
+0    -100000
+1    205000
+2    -102000
+
+///////////////////////////
+"
+
+
+"
+ 1) You plan to borrow $100 for 2 years, what is your future 
+      value if the annual rate is 5%?
+
+ 2) You would borrow $100 for 5 years, what is your future value 
+      if the annual rate is 5% compounded semiannually?
+ 
+ 3) To buy a house, you borrow $200,00 for 30 years, what is 
+       your monthly payment if your mortgage rate is 4.5%?
+
+ 4) In order to double your investment in 7 years, what kind 
+       of annual rate do you need?
+
+ 5) You paid $920 to buy a bond with 10 years maturity. If 
+       the coupon rate is 4% and coupon payments are paid 
+       twice per year. What is the YTM if the face value is 1000?
+
+ 6) Bank A offers 10% annual rate compounded semiannually, while 
+       Bank B offers 9.8% quarterly. Which rate is a better deal 
+       if you plan to borrow. 
+
+ 7) For monthly mortgage payment, we need a monthly rate. 
+      a) Bank A offers 10% annual rate compounded semiannually, 
+         what is its equivalent monthly rate?
+
+      b) Bank B offers 9.8% annual rate compounded quarterly, 
+         what is its equivalent monthly rate?
+
+"
+
+.ICE42<-"Exhibit 4.3 (generate both graphs)
+///////////////////////////////////////////////////////
+  To show the Exhibit 4.3
+        Step 1: find the ID by issuing the following command
+                .formula('exhibit4.3')
+        Step 2: .formula(ID) # ID is a value from Step 1
+
+  Task: regenerate Exhibit 4.3
+
+Left graph
+T	CashFlow
+0	-100000
+1	205000
+2	-102000
+
+Right graph
+0	-10000
+1	27000
+2	-20000
+
+/////////////////////////////////////
+"
+
+.ICE43<-"Finding multiple IRRs
+///////////////////////////
+   Step 1: Input cash flow data
+
+   Step 2: Generate a column for R (discount rate)
+           such as -0.4,-0.4+0.025, ...., 1.00
+
+   Step 3: Generate a NPV column using given cash flows 
+           and the column of the discount rates (steps 1 & 2) 
+ 
+   Step 4: find locations when the signs of NPV change (from
+           positive to negative or from negative to positive)
+
+   Step 5: use the guess in the irr(cashFlows,guess)
+           function (step 4). 
+
+One example shown below. 
+Time	CashFlow
+0	-100
+1	205
+2	-102
+
+///////////////////////////
+"
+
+.ICE44<-"Profitability Index
+///////////////////////////
+                           pv(benefits)
+ Profitability Index  =  --------------
+                           pv(costs)
+
+        If profitability index > 1  accept
+                               < 1  reject
+
+Time	CashFlow
+0	-100
+1	20
+2	33
+3	55
+4	63
+
+///////////////////////////
+"
+
+.ICE45<-"Payback period estimation 
+///////////////////////////
+First, generate a column of cash flows as shown below. 
+  Assume that the -100 is in A2. 
+ cashFlows
+ -100
+  20
+  33
+  55
+  63
+   ...
+
+Step 2: Generate another column of unpaid balance
+A1  CashFlows
+A2  -100     
+A3   20 
+     30 
+     50     .
+     63   .
+     ...  ...
+
+Step 3: When the balance changes sign stop. 
+///////////////////////////
+"
+
+.ICE46<-"review: a simple example
+///////////////////////////
+ Review: let's look the simplest example. 
+
+Time	cash_flow
+0	-100
+1	120
+
+Assume that R is 10%. 
+   a) manually calculate the NPV
+   b) apply the Excel pv() formula
+   c) apply the Excel npv() function 
+   d) What is the IRR?
+   e) Can we apply the IRR rule
+   f) What is the profitability index
+       i) using the cash flows
+      ii) using the discounted cash flows
+   g) What is the payback period 
+       i) using the cash flows
+      ii) using the discounted cash flows
+
+Change the signs of those two cash flows
+Time	cash_flow
+0	100
+1	-120
+
+   h) What is the IRR?
+   i) Can we apply the IRR rule
+
+///////////////////////////
+"
+
+.ICE47<-"Yield Curve
+///////////////////////////////////////////
+
+Step 1: go to 
+    https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics?data=yield
+
+Step 2: click DAILY TREASURY PAR YIELD CURVE RATES
+
+ Step 3: copy the first row, one example i shown below. 
+
+Date	1 Mo	2 Mo	3 Mo	4 Mo	6 Mo	1 Yr	2 Yr	3 Yr	5 Yr	7 Yr	10 Yr	20 Yr	30 Yr
+02/01/2023	4.59	4.63	4.66	4.77	4.79	4.66	4.09	3.75	3.48	3.43	3.39	3.67	3.55
+
+ Step 1:copy the above two lines to Excel
+
+ Step 2: using the Excel =transpose() funciton 
+         to convert them to two columns
+ Step 4: generate a column with values for date
+
+ Step 5: click two columns, then 'recommended charts'
+
+///////////////////////////
+"
+
+.ICE48<-"total return 
+///////////////////////////////////////////
+Assume that we invested for three periods such as 3 months. 
+
+ During those three periods, our returns are 0.1, 0.2 and 0.05, 
+ what is the total return?
+
+///////////////////////////
+"
+
+.ICE49<-"Effective 'period'/annual return 
+///////////////////////////////////////////
+ Assume that we bought a house at certain price 12 years ago. 
+     Now, the selling price is twice of our purchasing price. 
+
+  What is our annual return?
+
+///////////////////////////
+"
+
+
+.ICE50<-"Zero-coupon bond vs. coupon bond
+///////////////////////////////////////////
+ For a zero-coupon bond, there is no coupon. Investors buy at certain 
+   price and receive the face value when it matures. 
+
+ Assume that the face value is $1,000 for 5 years. 
+
+  p                                        $1,000
+  |---------|---------|---------| ...  --------|
+  0         1         2                        5
+
+
+ For a coupon bond, investors receive coupon payment. 
+  Assume that we just bought a 3-year conpon bond. The 
+   annual coupon rate is 8% and the company delivers coupon payments
+   twice per year. The face value is $100. Below is the cash flow pattern. 
+
+  -p          4         4         4         4         4         4 +100
+  |-----------|---------|---------|---------|---------|----------|
+  0          0.5        1         1.5       2         2.5       3
+
+///////////////////////////
+"
+
+# https://meet294.webex.com/meet/pr26315893027
+
+.ICE51<-"Bond price: Excel price() function
+///////////////////////////////////////////
+The Excel PRICE function returns the price per $100 face value of a
+   security that pays periodic interest.
+
+ =price(date1,date2,couponRate,Yield,100,nper)
+
+Example: 3-year conpon bond, coupon rate is 8% paid twice per year. 
+         The Yield-to-maturity (return) is 10%. 
+         what is the bond price today. 
+
+Method I:Generate two columns, then calculate pv()
+      
+Method II: apply the Excel price() function 
+
+   https://exceljet.net/functions/price-function#:~:text=The%20Excel%20PRICE%20function%20returns%20the%20price%20per,the%20price%20of%20the%20bond%20excluding%20accrued%20interest.
+
+///////////////////////////
+"
+
+.ICE52<-"VBA: bondPrice()
+///////////////////////////////////////////
+
+Function bondPrice(faceValue As Double, Years As Integer, CouponRate As Double, Yield As Double, Frequency As Integer)
+ date1 = \"1/1/2010\"
+ date2 = WorksheetFunction.EDate(date1, Years * 12)
+ bondPrice = faceValue / 100 * WorksheetFunction.Price(date1, date2, CouponRate, Yield, 100, Frequency)
+End Function
+
+Function bondPriceHelp() As String
+   bondPriceHelp = \"usage: =bondPrice(faceValue,YearsToMaturity,couponRate,Yield,freq)\"
+End Function
+
+///////////////////////////
+"
+
+
+
+.ICE53<-"Duration example #1
+///////////////////////////////////////////
+ Duration: how many years you can cover your initial
+    investment?
+  For a zero-coupon bond, 
+         D (duration) = T (maturity)
+  For example, a 10-year zero-coupond bond   will have a durtaion of 10 years. 
+
+Case #1
+-------
+  We invest today and will receive our payment, such as $100, at the end 
+   of the second year. What is the duration of our invetment? How many 
+   years we have to wait to recover our initial investment?
+  
+ -investment                           $100
+     |------------------|------------------|
+     0                  1                  2
+
+Case #2
+-------
+  We invest today and will receive two equal payments, such as $100, at the end 
+   of the first and second year. What is the duration of our invetment? 
+   How many years we have to wait to recover our initial investment?
+
+
+ -investment         $100              $100
+    |------------------|------------------|
+    0                  1                  2
+///////////////////////////
+"
+
+.ICE54<-"Duration of an investment 
+///////////////////////////////////////////
+     D = sum of weighted time
+
+ Assume that we have n future cash flows (including coupon 
+     payments and pricipal payment)
+
+     D = w1*T1 + w2*T2 + ... + wn*Tn
+
+       w1 = pv(c1) / pv(all cash flows)
+
+Below is  a simple example. 
+--------------------
+    pv               $100              $100
+    |------------------|------------------|
+    0                  1                  2
+
+                         pv(c1)           pv(c2)
+   D = w1 * T1 + w2*T2  = ------ * 1  +  ------- * 2
+                         pv(all)          pv(all)
+///////////////////////////
+"
+
+.ICE55<-"Excel duration() function to calculate the duration of a bond
+///////////////////////////////////////////
+
+   duration(date1,date2,couponRate,yield,nper)
+
+Example: 3-year conpon bond, coupon rate is 8% paid twice per year. 
+         The Yield-to-maturity (return) is 10%. 
+         what is the bond price today. 
+
+Method I: manually calculate 
+
+Method II: apply the Excel duration function 
+
+///////////////////////////////////////////
+"
+
+.ICE56<-"Duration my VBA function 
+///////////////////////////////////////////
+
+Function durationYan(YTM As Double,CouponRate As Double, Frequency As Double, maturityYears As Double) As Variant
+Dim i As Integer, rate As Double,coupon As Double, pv As Double, D As Double, bondPrice As Double
+
+bondPrice = 0
+D = 0
+coupon =100*CouponRate / Frequency
+rate = YTM / Frequency
+ 
+For i = 1 To (Frequency * maturityYears)
+           pv = coupon / (1 + rate) ^ i
+           D = D + pv * 1 / Frequency * i
+           bondPrice = bondPrice + pv
+Next i
+pv = 100/ (1 + rate) ^ (i - 1)
+D = D + pv * 1 / Frequency * (i - 1)
+bondPrice = bondPrice + pv
+durationYan = D / bondPrice
+
+End Function
+
+Function durationYanHelp() As String
+   durationYanHelp= \"usage: =durationYan(YTM,ConponRate,paymentsPerYear,matuirtyInYears)\"
+End Function
+
+///////////////////////////////////////////
+"
+
+
+.ICE57<-"Norminal vs. real rate 
+///////////////////////////////////////////
+
+  (1+ R_norminal) = (1+ R_real) * (1+ R_inflation)
+
+///////////////////////////
+"
+
+.ICE58<-"Getting stock data from Yahoo!Finance
+///////////////////////////////////////////
+  Below, IBM is used as an example. 
+
+  Step 1: go to https://finance.yahoo.com
+
+  Step 2: enter 'IBM'
+
+  Step 3: click 'Historical Data'
+
+  Step 4: choose a correct time period and frequency 
+
+  Step 5: click 'apply'
+ 
+  Step 6: click 'download'
+
+  Note #1: the ticker for S&P500 is ^GSPC
+  Note #2: for ^GSPC, you have to use copy-and-paste
+  [you might copy to your notepad first,then copy it to Excel ]
+///////////////////////////
+"
+
+.ICE59<-"VBA 4 meanGivenProb
+///////////////////////////////////////////
+Function meanGivenProb(prob As Range, returns As Range) As Variant
+  'by pyan@geneseo.edu 8/31/2017, modified 11/1/2019
+  Dim n, m, k, i As Integer, mean As Double
+  n = returns.Rows.Count
+  m = returns.Columns.Count
+  k = Application.Max(m, n)
+  mean = 0
+  For i = 1 To k
+        mean = mean + prob(i) * returns(i)
+  Next
+  meanGivenProb = mean
+End Function
+
+Function meanGivenProbHelp() As String
+   meanGivenProbHelp= \"usage: =meanGivenProb(prob_vector,return_vector)\"
+End Function
+
+///////////////////////////////////////////
+"
+
+.ICE60<-"VBA 4 varGivenProb
+///////////////////////////////////////////
+
+Function varGivenProb(prob As Range, returns As Range) As Variant
+    'by yany@canisius.edu 8/31/2017, modified 11/1/2019 
+     Dim n, m, k, i As Integer, mean, final As Double
+     n = returns.Rows.Count
+     m = returns.Columns.Count
+     k = Application.Max(m, n)
+     mean = 0
+     For i = 1 To k
+         mean = mean + prob(i) * returns(i)
+     Next
+     final = 0
+     For i = 1 To k
+         final = final + prob(i) * (returns(i) - mean) ^ 2
+     Next
+     varGivenProb = final
+End Function
+
+Function varGivenProbHelp() As String
+      varGivenProbHelp= \"usage: =varGivenProb(prob_vector,return_vector)\"
+End Function
+
+///////////////////////////////////////////
+"
+
+.ICE61<-"Method 2 for Method 1: for given probs and returns
+///////////////////////////////////////////
+Assume that we have the following probability and returns columns. 
+
+prob	returns
+0.2	-0.10
+0.3	0.23
+0.5	0.15
+
+By applying Method I, we will get 0.1240 and 0.117234807 for the mean 
+and standard deviation. One the other hand, if we generate the following 
+data set based on the above two columns, 
+
+-0.10
+-0.10
+ 0.23
+ 0.23
+ 0.23
+ 0.5
+ 0.5
+ 0.5
+ 0.5
+ 0.5
+
+   then, we could apply the Excel average() and stdev.p() to get the above two values. 
+
+   How to generate such a data set?
+///////////////////////////////////////////
+"
+
+.ICE60<-"m2_4_m1 function: for given probs and returns
+///////////////////////////////////////////
+  m2_4_m1 is for Method 2 for Method 1
+
+  .m2_4_m1()       # for both Mac and Windows users
+  .m2_4_m1_Mac()   # for Mac users
+  .m2_4_m1_PV()    # for Windows users
+
+ Step 1: Issue the following code:
+         .m2_4_m1()
+
+ Step 2: Copy the following 4 lines then hit any key:
+
+prob
+0.2
+0.3
+0.5
+
+ Step 3: Copy the following 4 lines then hit any key:
+
+returns
+-0.10
+0.23
+0.15
+
+ Step 4: Go back to Excel and paste the data set there
+ Step 5: Use the average(), var.p() and stdev.p() to get 
+         your results. 
+///////////////////////////////////////////
+"
+
+.ICE61<-"density vs. cumulative density distribution
+///////////////////////////////////////////
+ After tossing a dice, we would have the following probability. 
+  value prob
+   1    1/6
+   2    1/6
+   3    1/6
+   4    1/6
+   5    1/6
+   6    1/6
+
+  value<=   prob
+   1        1/6
+   2        1/6 +1/6
+   3        1/6 + 1/6 + 1/6 =3/6 =1/2
+   4        4/6  = 2/3
+   5        5/6
+   6        6/6 =1
+
+  The top part could be viewed as a 'density' distribution
+
+  The second part could be viewed as a 'cumulative density distribution. 
+
+///////////////////////////////////////////
+"
+
+.ICE62<-"normal distribution: density vs. cumulative density distributions
+///////////////////////////////////////////
+Density distribution for a standard normal distribution 
+-------------------------------------------------------------
+  Draw a column x and y
+  x        y
+ -4       =norm.s.dist(z,FALSE)
+ -4+0.5   
+  .
+  .
+  .
+
+  4
+
+
+Cumulative distribution for a standard normal distribution 
+-------------------------------------------------------------
+  Draw a column x and y
+  x        y
+ -4       =norm.s.dist(z,FALSE)
+ -4+0.5   
+  .
+  .
+  .
+
+  4
+
+///////////////////////////////////////////
+"
+
+.ICE63<-"Replicate Exhibit 7.2
+///////////////////////////////////////////
+
+> .formula(\"7.2\")
+ ID                                    NAME
+ 90 c7_exhibit7.2_distribution_sp500returns
+> 
+
+   Data set
+     http://datayyy.com/data_csv/sp500annual.csv
+   step 1: get the data
+   step 2: generat a bin, such as from -0.4, -0.4+0.05, ....
+   Step 3: data -> data analysis -> histogram
+   step 4: draw a graph
+
+///////////////////////////////////////////
+"
+
+.ICE64<-"Excel chisq.test function: whether a data set follow a specific distribution
+///////////////////////////////////////////
+  Go to this website first
+     https://corporatefinanceinstitute.com/resources/excel/functions/chisq-test-function/
+
+   H0: our data set follows a given distribution
+       Assume that alpha= 0.05  (significant level)
+       if =chisq.test(our data freq, expected freq) < alpha --> reject
+                                                    > alpha --> accept
+ Example
+
+       ,Observed,,,Expected frequencies
+       ,Men,Women,,MenWomen
+Answer A,30,45  ,,25.65,35
+Answer B,62,65  ,,60,55
+Answer C,35,25  ,,21,15
+
+		our data		expected
+		Men	Women	Men	Women
+Answer A	30	45  	25.65	35
+Answer B	62	65  	60	55
+Answer C	35	25  	21	15
+
+///////////////////////////////////////////
+"
+
+.ICE65<-"Do IMB daily returns follow a normal distribution?
+///////////////////////////////////////////
+   H0: IBM daily returns follow a normal distribution
+
+     Step 1: Get IBM daily price at http://finance.yahoo.com
+
+     Step 2: Estimate the daily returns, their mean and std
+
+     Step 3: Adjust those returns  ret2=(ret-mean)/std
+
+     Step 4: Generate a bin column, e.g., -3, -2.75, ..., 3
+
+     Step 5: Click \"Data\" -> \"Data Analysis\" -> \"Histogram\"
+              For \"Input Range\", use ret2
+              For \"Bin\",         use our bin column
+               Check \"Cumulative Percentage\" 
+
+     Step 6: Generate n_norm for each bin
+              for ith bin  [cumulative(i)- cumulative(i-1)]*n
+
+     Step 7: alternativly using the Excel chisq.test()
+               =chisq.test(our_freq_column,norm_freq_column)
+
+               if the result < 0.05 reject
+                             > 0.05 accept  
+               
+               https://corporatefinanceinstitute.com/resources/excel/functions/chisq-test-function/
+///////////////////////////////
+"
+
+.ICE66<-"Do IMB daily returns follow a normal distribution?  [Method II]
+///////////////////////////////////////////
+  H0: IBM daily returns follow a normal distribution
+      Step 1: Get IBM daily price at http://finance.yahoo.com
+      Step 2: Estimate the daily returns, their mean and std
+      Step 3: Adjust those returns  ret2=(ret-mean)/std
+      Step 4: Generate a bin column, e.g., -3, -2.75, ..., 3
+      Step 5: Click \"Data\" -> \"Data Analysis\" -> \"Histogram\"
+              For \"Input Range\", use ret2
+              For \"Bin\",         use our bin column
+               Check \"Cumulative Percentage\" 
+
+      Step 6: Generate n_norm for each bin
+               n_norm=[cumulate(i) - comulative(i-1)] * n
+                                          (n_our - n_norm)^2 
+      Step 7: Estimate              sum  --------------------
+                                              n_norm
+                          n_our  is our frequency for one bin
+                          n_norm is the frequency for one bin 
+      Step 8: Compare the sum with chi squre critical value, =chisq.inv.rt(prob,df)
+                 where prob. is the significant level, e.g., 0.05
+                 df is the degree of freedom, i.e. number of bin minus 1. 
+
+            Decision rule: if sum > critical value -> reject H0
+                              sum < critical value -> accept H0
+///////////////////////////////
+"
+
+.ICE67<-"VBA for Geometric mean for returns 
+///////////////////////////////////////////
+Function GEOMEANreturns(x As Range) As Variant
+     Dim i, n, n2 As Integer, product As String
+     product = x(1, 1) + 1
+     i = 2
+     n = x.Rows.Count
+     n2 = x.Columns.Count
+     If n > 1 Then
+          Do While i <= n
+              product = product * (x(i, 1) + 1)
+              i = i + 1
+          Loop
+          product = (product) ^ (1 / n)
+      Else
+         Do While i <= n2
+             product = product * (x(1, i) + 1)
+              i = i + 1
+          Loop
+          product = (product) ^ (1 / n2)
+      End If
+     GEOMEANreturns = product - 1
+End Function
+
+Function GEOMEANreturnsHelp() As String
+      GEOMEANreturnsHelp= \"usage: =GEOMEANreturns(return_vector)\"
+End Function
+///////////////////////////////////////////
+"
+
+.ICE61<-"Google Drive: share a document 
+///////////////////////////////////////////////////////
+
+ One example is given below.  
+     https://drive.google.com/file/d/1OZlRLayMPGTKX4xxQB6mDkFZBrZQGOwq/view?usp=sharing
+
+  Step 1: launch Google drive
+          https://drive.google.com/drive/u/1/my-drive
+          -> click 'My Drive'
+
+  Step 2: upload a file (any file)
+
+  Step 3: click the file 
+             --> Get Link
+             --> Copy the link [One example is shown below]
+             --> Click 'Viewer'
+             --> [Anyone with the link]
+
+///////////////////////////////////////////////////////
+"
+
+
+.ICE62<-"number of stocks vs. portfolio risk 
+///////////////////////////////////////////////////////
+
+To view the paper, Table 1 and two data sets, issue the following command. 
+
+> .sw('number of stocks')
+  ID                                         NAME                                            WEBSITE
+ 604 number of stocks vs. portfolio risk csv data http://datayyy.com/data_csv/nStock_stdPort.csv    
+ 605 number of stocks vs. portfolio risk excel    http://datayyy.com/data_excel/nStock_stdPort.xlsx 
+ 606 number of stocks vs. portfolio risk paper    http://datayyy.com/doc_pdf/meirStatman1987.pdf    
+ 607 number of stocks vs. portfolio risk Table1   http://datayyy.com/cf/images/meirStatmanTable1.png
+
+///////////////////////////////////////////////////////
+"
+
+
+.ICE63<-"S&P500 from monthly price to annual returns
+///////////////////////////////////////////////////////
+First, under the definition of a log return. Assume that we have two 
+     prices: p0=100, p1=110. Two types of returns are given below. 
+
+    R(%)= (p1-p0)/p0                          (1)
+        = (110-100)/100=10/100=0.1     
+
+    logRet= ln(p1/p0)                         (2)
+              =ln(110/100)=0.09531018    
+
+    from a percentage return to a log return 
+           logRet=ln(R+1)                    (3)
+               ln(0.1+1) ->0.09531018
+    From a logRet to a percentage return  
+             R=exp(logRet)-1                 (4)
+              =exp(0.09531018)-1 -> 
+
+ For the log returns, they have the following property:
+     A longer period log return is the summation of its sub-period's 
+       log returns. 
+    For example, a weekly log return is the summation of log daily returns. 
+                 a monthly log return is the summation of log weekly returns. 
+
+ Estimate the S&P500 annual returns 
+  Step 1: download the monthly S&P500 data from http://finance.yahoo.com or
+          .show_sp500monthly(0)
+  Step 2: generate two columns: logRet and yyyy
+  Step 3: launch Excel pivotable
+  Step 4: estimate summation of logRet by year
+  Step 5: apply formula (4) to convert log annual returns to annual % returns
+///////////////////////////////////////////////////////
+"
+
+.ICE64<-"Getting historical monthly and daily risk-free rates
+///////////////////////////////////////////////////////
+ Method I: go to Prof. French's Data Library at
+         http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
+
+         Download the data 
+
+            Fama/French 3 Factors  TXT  CSV  Details
+            Fama/French 3 Factors [Weekly]  TXT  CSV  Details
+            Fama/French 3 Factors [Daily]  TXT  CSV  Details
+ 
+Method II:
+            .show_ff3monthly(0)
+
+            .show_ff3daily(0)
+
+///////////////////////////////////////////////////////
+"
+
+
+.ICE65<-"Confidence interval 
+///////////////////////////////////////////////////////
+  Significance level:  Alpha=0.01, 0.05 or 0.10
+
+  Confidence interval:  1- alpha
+
+  Assume that our mean is 0.1, what is its 95% confidence 
+      interval?
+
+   StdError = sigma/sqrt(n)
+           where sigma is the std deviation of returns
+                 n     is the number of observations
+
+    t-critical value = t.inv.2t(alpha,n-1)
+
+    lower bound = mean - |t_critical | * stdError
+    upper bound = mean + |t_critical | * stdError
+
+  Q1: What is the average for the S&P500 annual returns?
+  Q2: what is the 95% confidence level?
+  Q3: How to interpret this range?
+    
+    Source of data:
+      .show_sp500annual(0)
+
+///////////////////////////////////////////////////////
+"
+
+
+.ICE66<-"CAPM definition, regression etc. 
+///////////////////////////////////////////////////////
+CAPM (Capital Asset Pricing Model) 
+   
+    R(i,t) = Rf(t) + beta *[R(m,t)-Rf(t)] + e(t)    (2)
+
+   where R(i,t) is the stock i's return at time t
+
+         Rf(t)  is the risk-free rate at time t
+
+         beta   is the market risk (slope)
+
+         R(m,t) is the market return at time t
+
+         e(t)   is a random factor
+
+///////////////////////////////////////////////////////
+"
+
+.ICE67<-"What is the market risk for IBM?
+///////////////////////////////////////////////////////
+    R(IBM)  = alpha + beta *[R(m)-Rf]       (1)
+
+    R(IBM)- Rf=alpha+beta *[R(m)0 - Rf]     (2)
+      y is the risk premium for IBM, and x is the market risk-premium
+
+  Using the last 5-year data to estimate IBM's beta
+
+ Step 1: download IBM monthly historical price data from 
+         https://finance.yahoo.com
+
+ Step 2: download the Fama-French 3 factor time series
+         at Professor French's Data Library
+     > .sw('French data')
+  ID                      NAME                                                                  WEBSITE
+ 515 Prof. French Data Library http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html
+
+ Step 3: merge them
+ Step 4: estimate returns for IBM
+ Step 5: estimate y and x
+ Step 6: run a linear regression 
+ Step 7: interpret your results 
+
+///////////////////////////////////////////////////////
+"
+
+.ICE68<-"My two videos related to a linear regression
+///////////////////////////////////////////////////////
+
+ Simple linear regressions #1
+     https://youtu.be/2eBleVHhDd8
+
+ Simple linear regressions #2
+     https://youtu.be/SxJZ478-zYg
+
+///////////////////////////////////////////////////////
+"
+
+.ICE69<-"Test of equal mean and test of equal-variance
+///////////////////////////////
+After clicking Data -> Data Analysis -> we could find the following 2 entries:
+
+  t-Test: Two-Sample Assuming Equal Variance
+  t-Test: Two-Sample Assuming Unequal Variance
+
+Thus, if we have two samples and want to test whether they have equal means,
+    we have two steps:
+
+  Step 1: test if they have equal-variance
+
+  Step 2: depend on the outcome from Step 1: we choose 
+          one of the above mentioned t-Tests. 
+
+In-class-Exercise
+
+  Data -> Data Analysis -> Random number generation
+ 
+     2
+     60
+  normal 0 1
+  random seed 12345
+  Output range: A2
+
+  Conduct two tests: 1) F-test for equal variances
+                     2) T-test for equal means    
+
+///////////////////////////////
+"
+
+.ICE70<-"Sharpe ratio, Treynor Ratio
+///////////////////////////////////////////////////////
+  Sharpe ratio vs. Treynor ratio:
+
+                   Benefit      R_mean - Rf
+  Sharpe ratio =  ---------  =  -------------       (1)
+                    Cost          sigma
+
+         Sigma is used to measure the toal risk of a stock (firm)
+
+
+                   Benefit      R_mean - Rf
+  Treynor ratio =  ---------  =  -------------
+                    Cost          beta
+
+         Beta is used to measure the market risk of a stock (firm)
+
+///////////////////////////////////////////////////////
+"
+
+.ICE71<-"Sortino ratio, LPSD (Lower Partial Standard Deviation)
+/////////////////////////////////////
+ Assume that we have n returns, R1, R2, ..., Rn
+
+  For SD (standard deviation), we have the following formula
+
+           (R1-R_mean)^2 + (R2-R_mean)^2 + .... + (Rn-R_mean)^2
+   var  =  ---------------------------------------------------        (1)
+                       n-1
+
+   SD= sqrt(var)                                                      (2)
+
+
+LPSD (Lower Partial Standard Deviation)
+     For a given benchmark return R_benchmark, we drop all
+        the returns that are higher than this benchmark return. 
+
+
+           (R1-R_mean)^2 + .... + (Rn-R_mean)^2
+   var2 =  -----------------------------------   if(Ri<R_benchmark)   (3)  
+                       n-1
+
+   LPSD= sqrt(var2)                                                   (4)
+
+                        R_mean - Rf
+        Sortino ratio= ----------------
+                          LSPD
+
+/////////////////////////////////////
+"
+
+.ICE59<-"VBA for LPSD
+///////////////////////////////////////////////////////
+
+Function LPSD(returns As Range, MAR As Variant) As Variant
+Dim n As Integer
+Dim i As Integer
+Dim avgReturn As Double
+Dim mm2d As Double
+Dim downDev As Double
+n = returns.Rows.Count
+avgReturn = WorksheetFunction.Average(returns)
+moment2d = 0
+For i = 1 To n
+   If returns(i) - MAR < 0 Then
+     mm2d = mm2d + ((returns(i) - MAR) ^ 2)
+   End If
+Next
+downDev = Sqr(mm2d / (n - 1))
+If downDev > 0 Then
+   LPSD = downDev
+Else
+   LPSD = \"undefined\"
+End If
+End Function
+
+///////////////////////////////////////////////////////
+"
+
+.ICE60<-"LPSD_help 
+/////////////////////////////////////
+copy all code below. 
+--------------------
+
+Function LPSD_help() As Variant
+   Call LPSD2
+End Function
+
+Sub LPSD2()
+
+Dim t1 As String
+Dim t2 As String
+Dim t3 As String
+Dim t4 As String
+Dim t5 As String
+
+t1 = \"Assume: \"
+t2 = \"   1) a return column or row \"
+t3 = \"   2) a risk-free rate\"
+t4 = \"                      \"
+t5 = \"Usage:  =LPSD(return, rf)\"
+
+    MsgBox (t1 & vbCrLf & t2 & vbCrLf & t3 & vbCrLf & t4 & vbCrLf & t5)
+End Sub
+
+//////////////////////////////////////
+"
+
+.ICE61<-"Sortino ratio for IBM 
+/////////////////////////////////////
+  a) download monthly historical price data from IBM
+     from https://finance.yahoo.com
+
+  b) assume that the annual Rf=1%
+
+  c) estimate LPSD using two methods
+
+     i) manually do it
+
+     ii) use VBA LPSD
+                                 R  - Rf
+  d) estimate Sortino ratio =  ----------------
+                                 LPSD
+
+//////////////////////////////////////
+"
+
+.ICE62<-"Market efficiency: January Effect 
+///////////////////////////////////////////////////////
+
+ January Effect: The returns in January is statistically different
+                 from other months. 
+
+   Step 1: Download one stock historical price data 
+
+   Step 2: Calculate its monthly returns
+
+   Step 3: Generate a month column by using the Excel month() function 
+
+   Step 4: Group returns into two groups (or multiple groups) 
+           1)  January vs. non-January 
+           2)  January vs. Feb, etc. 
+
+   Step 5: conduct a test: equal means?
+
+              H0: R_mean (January) = R_mean(non_January)
+
+///////////////////////////////////////////////////////
+"
+
+.ICE63<-"52-week high-low trading strategy 
+/////////////////////////////////////
+Logic: compare two mean returns
+       mean #1: based on a 52-week high trading strategy
+       mean #2: based on a long-only 
+
+   Note #1: How to compare two means?
+   Note #2: This could be viewed as a technical analysis. 
+   Note #3: if your strategy is significantly different from buy-and-hold
+            but it is inferior, what will you do?
+
+ Step 1: download IBM's daily data (max possible length)
+         a) from http://finance.yahoo.com
+         b) from http://canisius.edu/~yany/data/ibmDaily.csv
+
+ Step 2: generate a return column 
+                                       todayPrice - 52weekLow
+ Step 3: generate a status ratio  =  ----------------------
+                                       52weekHigh -  52weekLow 
+
+ Step 4: design an investment strategy 
+         Example #1,  if ratio > 0.8 buy    => strategy=1
+                               < 0.2 sell   => strategy=-1
+   
+         Example #2:  if ratio > 0.8 sell   => strategy=-1
+                               < 0.3 buy    => strategy=1
+
+         Example #3:  other cut-off points 
+
+ Step 5: Find your holding period return 
+         if holding period is 1 day , then realizedRet= strategy(t) * return (t+1)
+         if holding period is 3 days, then realizedRet= strategy(t) * mean of R(t+1), R(t+2), R(t+3)
+
+ Step 6: Generate two columns: 
+         Column #1: based on your 52-week high trading strategy 
+         Column #2: the benchmark is long the stock
+
+ Step 7: Conduct a test: do they have equal means?
+/////////////////////////////////////
+"
+
+.ICE64<-"Market timing: Treynor Mazuy model (1997)
+/////////////////////////////////////
+CAPM
+----------------
+     To estimate beta, we run the following regression 
+
+     R(i,t)-Rf(t) = alpha + beta *[R(m,t)-Rf(t)]           (1)
+
+     where R(i,t) is the stock i's return at time t
+           Rf(t)  is the risk-free rate at time t
+           beta   is the market risk (slope)
+           R(m,t) is the market return at time t
+        
+Treynor-Mazuy Model
+-------------------
+    R(i,t)-Rf(t)=alpha + beta1*[R(m,t)-Rf(t)] + beta2*[R(m,t)-Rf(t)]^2     (2)
+
+We can simply remember the following ones. 
+
+      y = alpha + beta*x                         (3)
+      y = alpha + beta1*x + beta2*x^2            (4)
+
+  Paramita, V. Santi,2015,Testing TREYNOR-MAZUY Conditional Model in Bull and Bear Market
+      http://buscompress.com/uploads/3/4/9/8/34980536/riber_k15-105__208-219_.pdf
+
+  Treynor and Mazuy,1997,Can Mutual Funds outguess the Market?, 1997, 
+      https://users.business.uconn.edu/jgolec/Treynor-Mazuy.pdf
+
+/////////////////////////////////////
+"
+
+.ICE65<-"Manually get balance-sheets and income statements
+/////////////////////////////////////
+
+Location #1: 
+           https://finance.yahoo.com
+
+Location #2: 
+           https://google.com/finance
+
+Location #3: 
+           https://marketwatch.com
+
+Location #4:
+          https://www.barchart.com/stocks/quotes/ibm/balance-sheet/annual
+/////////////////////////////////////
+"
+
+.ICE66<-".getBS10 and .getIS10 for 10 companies
+/////////////////////////////////////
+ Work for just 10 companies: 
+   'ibm', 'wmt', 'msft', 'c','aapl','jnj', 'bac','F','MA',or 'MAA'
+
+Type the name to get its usage
+------------------------------
+ .getBS10
+
+Type the name to get its usage
+------------------------------
+  .getIS10
+
+/////////////////////////////////////
+"
+
+.ICE67<-".getBSannual and .getISannual functions
+/////////////////////////////////////
+ You need to install the following R packages
+
+ Copy and paste the following lines to R console
+
+install.packages('httr')
+install.packages('rvest')
+install.packages('xml2')
+install.packages('quantmod')
+install.packages('stringr')
+
+# then type the name of a function
+
+.getBSannual
+
+.getISannual
+
+/////////////////////////////////////
+"

@@ -1,0 +1,130 @@
+.getdata1<-function(){
+"
+ *---------------------------------------------------------*
+ * .getdata                                                *
+ *---------------------------------------------------------*
+ *  Economics             Finance                          *
+ *---------------------------------------------------------*
+ * .show_usGDPannual     .show_ibmMonthly                  *
+ * .show_usGDPquarterly  .show_ibmDaily                    *
+ * .show_usUnemployRate  .showff3Monthly                   *
+ *                       .showff3Daily                     *
+ *---------------------------------------------------------*
+ * >.show_usGDPannual     # find the usage of the function *
+ * >.getdata              # back to this menu              *
+ * >.cf                   # back to the main menu          *
+ *---------------------------------------------------------*
+
+";.zgetdata1()}
+
+.zgetdata1<-function(){
+cat(
+"
+ *---------------------------------------------------------*
+ * .getdata                                                *
+ *---------------------------------------------------------*
+ *  Economics             Finance                          *
+ *---------------------------------------------------------*
+ * .show_usGDPannual     .show_ibmMonthly                  *
+ * .show_usGDPquarterly  .show_ibmDaily                    *
+ * .show_usUnemployRate  .showff3Monthly                   *
+ *                       .showff3Daily                     *
+ *---------------------------------------------------------*
+ * >.show_usGDPannual     # find the usage of the function *
+ * >.getdata              # back to this menu              *
+ * >.cf                   # back to the main menu          *
+ *---------------------------------------------------------*
+")}
+
+
+.getdata2<-function(){
+"
+ *-------------------------------------------------------*
+ * .getdata                                              *
+ *-------------------------------------------------------*
+ *  Economics             Finance            Accounting  *
+ *-------------------------------------------------------*
+ * .show_usGDPannual     .show_ibmMonthly    .getBS10    *
+ * .show_usGDPquarterly  .show_ibmDaily      .getIS10    *
+ * .show_usUnemployRate  .show_sp500Monthly  .getCF10    *
+ *                       .show_sp500Daily                *
+ *                       .showff3Monthly                 *
+ *                       .showff3Daily                   *
+ *-------------------------------------------------------*
+ * >.show_usGDPannual   # find the usage of the function *
+ * >.getdata            # back to this menu              *
+ * >.cf                 # back to the main menu          *
+ *-------------------------------------------------------*
+
+";.zgetdata2()}
+
+.zgetdata2<-function(){
+cat(
+"
+ *-------------------------------------------------------*
+ * .getdata                                              *
+ *-------------------------------------------------------*
+ *  Economics             Finance            Accounting  *
+ *-------------------------------------------------------*
+ * .show_usGDPannual     .show_ibmMonthly    .getBS10    *
+ * .show_usGDPquarterly  .show_ibmDaily      .getIS10    *
+ * .show_usUnemployRate  .show_sp500Monthly  .getCF10    *
+ *                       .show_sp500Daily                *
+ *                       .showff3Monthly                 *
+ *                       .showff3Daily                   *
+ *-------------------------------------------------------*
+ * >.show_usGDPannual   # find the usage of the function *
+ * >.getdata            # back to this menu              *
+ * >.cf                 # back to the main menu          *
+ *-------------------------------------------------------*
+")}
+
+
+.getdata3<-function(){
+"
+ *-------------------------------------------------------------*
+ * .getdata                                                    *
+ *-------------------------------------------------------------*
+ *  Economics/Accounting   Finance            Utilities        *
+ *-------------------------------------------------------------*
+ * .show_usGDPannual     .show_ibmMonthly    .search           *
+ * .show_usGDPquarterly  .show_ibmDaily      .data2Excel       *
+ * .show_usUnemployRate  .show_sp500Monthly                    *
+ * .showCreditSpread     .show_sp500Daily    .search           *
+ *                       .showff3Monthly     .download2cTemp   *
+ * .getBS10              .showff3Daily                         *
+ * .getIS10                                  .search           *
+ * .getCF10                                  .showHTTMlink     *
+ *-------------------------------------------------------------*
+ * >.show_usGDPannual   # find the usage of the function       *
+ * >.getdata            # back to this menu                    *
+ * >.cf                 # back to the main menu                *
+ *-------------------------------------------------------------*
+
+";.zgetdata3()}
+
+.zgetdata3<-function(){
+cat(
+"
+ *-------------------------------------------------------------*
+ * .getdata                                                    *
+ *-------------------------------------------------------------*
+ *  Economics/Accounting   Finance            Utilities        *
+ *-------------------------------------------------------------*
+ * .show_usGDPannual     .show_ibmMonthly    .search           *
+ * .show_usGDPquarterly  .show_ibmDaily      .data2Excel       *
+ * .show_usUnemployRate  .show_sp500Monthly                    *
+ * .showCreditSpread     .show_sp500Daily    .search           *
+ *                       .showff3Monthly     .download2cTemp   *
+ * .getBS10              .showff3Daily                         *
+ * .getIS10                                  .search           *
+ * .getCF10                                  .showHTTMlink     *
+ *-------------------------------------------------------------*
+ * >.show_usGDPannual   # find the usage of the function       *
+ * >.getdata            # back to this menu                    *
+ * >.cf                 # back to the main menu                *
+ *-------------------------------------------------------------*
+")}
+
+
+

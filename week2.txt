@@ -1,0 +1,58 @@
+source('http://datayyy.com/cf2/sourceAll.txt')
+
+.cf<-function(){
+"
+ *------------------------------------------------------*
+ * FNCE311                        Spring 2023 by Yan    *
+ *------------------------------------------------------*
+ * .c1  Introduction          .c20 R basics (optional)  *
+ * .c2  Present value                                   *
+ *------------------------------------------------------*
+ * >.c2       # go to chapter 2                         *
+ * >.uu       # go to the utility menu                  *
+ * >.cf       # back to this menu                       *
+ *------------------------------------------------------*
+";.cf_()}
+
+.cf_<-function(){
+cat("
+
+ *------------------------------------------------------*
+ * FNCE311                        Spring 2023 by Yan    *
+ *------------------------------------------------------*
+ * .c1  Introduction          .c20 R basics (optional)  *
+ * .c2  Present value                                   *
+ *------------------------------------------------------*
+ * >.c2       # go to chapter 2                         *
+ * >.uu       # go to the utility menu                  *
+ * >.cf       # back to this menu                       *
+ *------------------------------------------------------*
+")}
+
+.whichHW<<-0
+
+.utilities<<-.utilities1
+.uu<-.utilities1
+
+.getdata<<-.getdata1
+.gd<<-.getdata
+
+.inClassEx<<-.inClassEx1
+.ice<<-.inClassEx
+.n_InClassEx<-.n_InClassEx1
+
+.na<-"Not available "
+
+.c3<-.c4<-.c5<-.c6<-.c7<-.c8<-.c9<-.c10<-.c11<-.c12<-.c13<-.c14<-.c15<-.na
+.c17<-.c18<-.na
+.c30<-.na
+
+.chapter4<-.chapter4<-.chapter5<-.na
+.chapter6<-.chapter7<-.chapter8<-.chapter9<-.chapter10<-.na
+.chapter11<-.chapter12<-.chapter13<-.chapter14<-.chapter15<-.na
+.chapter17<-.chapter18<-.na
+.chapter30<-.na
+
+.cls()
+.cf()
+

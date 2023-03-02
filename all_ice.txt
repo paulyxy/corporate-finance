@@ -1,0 +1,232 @@
+.inClassEx1<-function(i){
+" i chap  Description 
+  - ----  ------------------------------
+  1   1   Videos on R installation !
+  2   1   Exponential vs. logarithm functions
+  3   2   Time-line 
+  4   2   Future  value function (for a given present value)
+  5   2   Present value function (for a given future  value) 
+  6   2   Excel pv() function 
+  7   2   Excel sign convention 
+  8   2   PVIF (Present value interest factor) table 
+  9   2   Simple interest vs. compounded interest
+ 10   2   NPV calculation 
+ 11   2   Normal projects
+ 12   2   NPV vs. discount rate
+ 13   2   A true NPV function: NPVyan 
+ 14   2   Definition of an effective rate
+ 15   2   Banks' quotations
+ 16   2   Excel effect() function for EAR
+ 17   2   Effective rate: my 2-step approach
+
+Example 1:>.ice        # show all exercises
+Example 2:>.ice(1)     # see the first one
+
+";.inClassEx_(i)}
+.n_InClassEx1<- 17
+
+
+.inClassEx2<-function(i){
+" i chap  Description 
+  - ----  ------------------------------
+  1   1   Videos on R installation !
+  2   1   Exponential vs. logarithm functions
+  3   2   Time-line 
+  4   2   Future  value function (for a given present value)
+  5   2   Present value function (for a given future  value) 
+  6   2   Excel pv() function 
+  7   2   Excel sign convention 
+  8   2   PVIF (Present value interest factor) table 
+  9   2   Simple interest vs. compounded interest
+ 10   2   NPV calculation 
+ 11   2   Normal projects
+ 12   2   NPV vs. discount rate
+ 13   2   A true NPV function: NPVyan 
+ 14   2   Definition of an effective rate
+ 15   2   Banks' quotations
+ 16   2   Excel effect() function for EAR
+ 17   2   Effective rate: my 2-step approach
+
+Example 1:>.ice        # show all exercises
+Example 2:>.ice(1)     # see the first one
+
+";.inClassEx_(i)}
+.n_InClassEx2<- 17
+
+
+.inClassEx3<-function(i){
+" i chap  Description 
+  - ----  ------------------------------
+  1   1   Videos on R installation !
+  2   1   Exponential vs. logarithm functions
+  3   2   Time-line 
+  4   2   Future  value function (for a given present value)
+  5   2   Present value function (for a given future  value) 
+  6   2   Excel pv() function 
+  7   2   Excel sign convention 
+  8   2   PVIF (Present value interest factor) table 
+  9   2   Simple interest vs. compounded interest
+ 10   2   NPV calculation 
+ 11   2   Normal projects
+ 12   2   NPV vs. discount rate
+ 13   2   A true NPV function: NPVyan 
+ 14   2   Definition of an effective rate
+ 15   2   Banks' quotations
+ 16   2   Excel effect() function for EAR
+ 17   2   Effective rate: my 2-step approach
+ 18   2   Effective annual rate: Excel effect() function
+ 19   2   Effective rate: formula approach
+ 20   3   Effective rate: VBA effectYan()
+ 21!  3   Effective rate: 7 ways
+ 22   3   pv(perpetuity): 2 method
+ 23   3   Derivation of the formula for pv(perpetuity)
+ 24   3   Growing perpetuity
+ 25   3   Gordon growing model 
+ 26   3   pv(annuity) formula
+ 27   3   Derivation of PV(annuity): optional 
+ 28   3   pv(growing annuity)
+ 29   3   fv(annuity)
+ 30   3   Lottery
+ 31   3   What is John Doe's monthly mortgage payment 
+ 32   3   NPV rule
+ 33   3   pv of a growing annuity without a formula 
+ 34   3   72-rule [ 70 rule ]
+
+Example 1:>.ice        # show all exercises
+Example 2:>.ice(1)     # see the first one
+
+";.inClassEx_(i)}
+.n_InClassEx3<- 34
+
+
+.inClassEx4<-function(i){
+" i chap  Description 
+  - ----  ------------------------------
+  1   1   Videos on R installation !
+  2   1   Exponential vs. logarithm functions
+  3   2   Time-line 
+  4   2   Future  value function (for a given present value)
+  5   2   Present value function (for a given future  value) 
+  6   2   Excel pv() function 
+  7   2   Excel sign convention 
+  8   2   PVIF (Present value interest factor) table 
+  9   2   Simple interest vs. compounded interest
+ 10   2   NPV calculation 
+ 11   2   Normal projects
+ 12   2   NPV vs. discount rate
+ 13   2   A true NPV function: NPVyan 
+ 14   2   Definition of an effective rate
+ 15   2   Banks' quotations
+ 16   2   Excel effect() function for EAR
+ 17   2   Effective rate: my 2-step approach
+ 18   2   Effective annual rate: Excel effect() function
+ 19   2   Effective rate: formula approach
+ 20   3   Effective rate: VBA effectYan()
+ 21!  3   Effective rate: 7 ways
+ 22   3   pv(perpetuity): 2 method
+ 23   3   Derivation of the formula for pv(perpetuity)
+ 24   3   Growing perpetuity
+ 25   3   Gordon growing model 
+ 26   3   pv(annuity) formula
+ 27   3   Derivation of PV(annuity): optional 
+ 28   3   pv(growing annuity)
+ 29   3   fv(annuity)
+ 30   3   Lottery
+ 31   3   What is John Doe's monthly mortgage payment 
+ 32   3   NPV rule
+ 33   3   pv of a growing annuity without a formula 
+ 34   3   72-rule [ 70 rule ]
+ 35   3   VBA for present value of a growing annuity 
+ 36   3   Excel solver
+ 37   3   A general formula [instead of Excel 5 functions]
+ 38   4   lottery: pv(lottery)
+ 39   4   lottery: discount rate of a winning lottery
+ 40   4   mortgage
+ 41   4   NPV rule: one example
+ 42   4   Exhibit 4.3  (generate both graphs)
+ 43   4   Finding multiple IRRs 
+ 44   4   Profitability Index: one example
+ 45   4   Payback period estimation
+ 46   4   review: a simple example
+
+Example 1:>.ice        # show all exercises
+Example 2:>.ice(1)     # see the first one
+
+";.inClassEx_(i)}
+.n_InClassEx4<- 46
+
+
+.inClassEx5<-function(i){
+" i chap  Description 
+  - ----  ------------------------------
+  1   1   Videos on R installation !
+  2   1   Exponential vs. logarithm functions
+  3   2   Time-line 
+  4   2   Future  value function (for a given present value)
+  5   2   Present value function (for a given future  value) 
+  6   2   Excel pv() function 
+  7   2   Excel sign convention 
+  8   2   PVIF (Present value interest factor) table 
+  9   2   Simple interest vs. compounded interest
+ 10   2   NPV calculation 
+ 11   2   Normal projects
+ 12   2   NPV vs. discount rate
+ 13   2   A true NPV function: NPVyan 
+ 14   2   Definition of an effective rate
+ 15   2   Banks' quotations
+ 16   2   Excel effect() function for EAR
+ 17   2   Effective rate: my 2-step approach
+ 18   2   Effective annual rate: Excel effect() function
+ 19   2   Effective rate: formula approach
+ 20   3   Effective rate: VBA effectYan()
+ 21!  3   Effective rate: 7 ways
+ 22   3   pv(perpetuity): 2 method
+ 23   3   Derivation of the formula for pv(perpetuity)
+ 24   3   Growing perpetuity
+ 25   3   Gordon growing model 
+ 26   3   pv(annuity) formula
+ 27   3   Derivation of PV(annuity): optional 
+ 28   3   pv(growing annuity)
+ 29   3   fv(annuity)
+ 30   3   Lottery
+ 31   3   What is John Doe's monthly mortgage payment 
+ 32   3   NPV rule
+ 33   3   pv of a growing annuity without a formula 
+ 34   3   72-rule [ 70 rule ]
+ 35   3   VBA for present value of a growing annuity 
+ 36   3   Excel solver
+ 37   3   A general formula [instead of Excel 5 functions]
+ 38   4   lottery: pv(lottery)
+ 39   4   lottery: discount rate of a winning lottery
+ 40   4   mortgage
+ 41   4   NPV rule: one example
+ 42   4   Exhibit 4.3  (generate both graphs)
+ 43   4   Finding multiple IRRs 
+ 44   4   Profitability Index: one example
+ 45   4   Payback period estimation
+ 46   4   review: a simple example
+ 47   5   Yield curve
+ 48   5   total return 
+ 49   5   Effective annual return 
+ 50   5   Zero-coupon bond vs. coupon-bond
+ 51   5   Bond price: Excel price() Excel function 
+ 52   5             : bondPrice() # my VBA function 
+ 53   5   Duration  : example #1
+ 54   5             : of an investment
+ 55   5             : Excel duration() function 
+ 56   5             : durationYan() # my VBA
+ 57   5   norminal rate vs. real rate
+ 58   0   Getting data from yahoo!Finance
+
+Example 1:>.ice        # show all exercises
+Example 2:>.ice(1)     # see the first one
+
+";.inClassEx_(i)}
+.n_InClassEx5<- 58
+
+
+
+
+
+
+

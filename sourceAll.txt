@@ -1,0 +1,7 @@
+source('http://datayyy.com/cf2/allCode.txt')
+source('http://datayyy.com/cf2/allChapters.txt')
+source('http://datayyy.com/cf2/allUtilityFunctions.txt')
+source('http://datayyy.com/cf2/all_ice.txt')
+source('http://datayyy.com/cf2/all_getdata.txt')
+source('http://datayyy.com/cf2/inClassEx.txt')
+

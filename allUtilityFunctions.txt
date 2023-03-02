@@ -1,0 +1,226 @@
+.utilities1<-function(){
+"
+ *-------------------------------------------------*
+ * Utilities        -short-cut --                  *
+ *-------------------------------------------------*
+ * .allChapters      # .all                        *
+ * .calendar         # .cal                        *
+ * .downloadChapter  # .dc                         *
+ * .inClassEx        # .ice                        *
+ * .macUsers         # .mac                        *
+ * .searchWebs       # .sw                         *
+ *-------------------------------------------------*
+ * >.ice             # see a list of ice           *
+ * >.uu              # back to utilities           *
+ * >.cf              # back to main menu           *
+ *-------------------------------------------------*
+";.zutilities1()}
+
+.zutilities1<-function(){
+cat(
+" 
+ *-------------------------------------------------*
+ * Utilities        -short-cut --                  *
+ *-------------------------------------------------*
+ * .allChapters      # .all                        *
+ * .calendar         # .cal                        *
+ * .downloadChapter  # .dc                         *
+ * .inClassEx        # .ice                        *
+ * .macUsers         # .mac                        *
+ * .searchWebs       # .sw                         *
+ *-------------------------------------------------*
+ * >.ice             # see a list of ice           *
+ * >.uu              # back to utilities           *
+ * >.cf              # back to main menu           *
+ *-------------------------------------------------*
+")}
+
+.utilities2<-function(){
+"
+ *-------------------------------------------------*
+ * Utilities        -short-cut --                  *
+ *-------------------------------------------------*
+ * .allChapters      # .all                        *
+ * .calendar         # .cal                        *
+ * .datacases        # .dd .hw (for HW/data cases) *
+ * .downloadChapter  # .dc                         *
+ * .inClassEx        # .ice                        *
+ * .macUsers         # .mac                        *
+ * .homework         # .hw     (for HW/data cases) *
+ * .searchWebs       # .sw                         *
+ *-------------------------------------------------*
+ * >.ice             # see a list of ice           *
+ * >.uu              # back to utilities           *
+ * >.cf              # back to main menu           *
+ *-------------------------------------------------*
+";.zutilities2()}
+
+
+.zutilities2<-function(){
+cat(
+" 
+ *-------------------------------------------------*
+ * Utilities        -short-cut --                  *
+ *-------------------------------------------------*
+ * .allChapters      # .all                        *
+ * .calendar         # .cal                        *
+ * .datacases        # .dd .hw (for HW/data cases) *
+ * .downloadChapter  # .dc                         *
+ * .inClassEx        # .ice                        *
+ * .macUsers         # .mac                        *
+ * .homework         # .hw     (for HW/data cases) *
+ * .searchWebs       # .sw                         *
+ *-------------------------------------------------*
+ * >.ice             # see a list of ice           *
+ * >.uu              # back to utilities           *
+ * >.cf              # back to main menu           *
+ *-------------------------------------------------*
+ * >.ice             # see a list of ice           *
+ * >.uu              # back to utilites            *
+ * >.cf              # back to main menu           *
+ *-------------------------------------------------*
+")}
+
+
+.utilities3<-function(){
+"
+ *-------------------------------------------------*
+ * Utilities        -short-cut --                  *
+ *-------------------------------------------------*
+ * .allChapters      # .all                        *
+ * .calendar         # .cal                        *
+ * .datacases        # .dd .hw (for HW/data cases) *
+ * .downloadChapter  # .dc                         *
+ * .effectYan        # .effect                     *
+ * .inClassEx        # .ice                        *
+ * .macUsers         # .mac                        *
+ * .homework         # .hw     (for HW/data cases) *
+ * .searchWebs       # .sw                         *
+ * .watchVideo       # .wv                         *
+ *-------------------------------------------------*
+ * >.ice             # see a list of ice           *
+ * >.uu              # back to utilities           *
+ * >.cf              # back to main menu           *
+ *-------------------------------------------------*
+";.zutilities3()}
+
+
+.zutilities3<-function(){
+cat(
+" 
+ *-------------------------------------------------*
+ * Utilities        -short-cut --                  *
+ *-------------------------------------------------*
+ * .allChapters      # .all                        *
+ * .calendar         # .cal                        *
+ * .datacases        # .dd .hw (for HW/data cases) *
+ * .downloadChapter  # .dc                         *
+ * .effectYan        # .effect                     *
+ * .inClassEx        # .ice                        *
+ * .macUsers         # .mac                        *
+ * .homework         # .hw     (for HW/data cases) *
+ * .searchWebs       # .sw                         *
+ * .watchVideo       # .wv                         *
+ *-------------------------------------------------*
+ * >.ice             # see a list of ice           *
+ * >.uu              # back to utilities           *
+ * >.cf              # back to main menu           *
+ *-------------------------------------------------*
+")}
+
+
+.utilities4<-function(){
+"
+ *-------------------------------------------------*
+ * Utilities        -short-cut --                  *
+ *-------------------------------------------------*
+ * .allChapters      # .all                        *
+ * .calendar         # .cal                        *
+ * .datacases        # .dd .hw (for HW/data cases) *
+ * .downloadChapter  # .dc                         *
+ * .effectYan        # .effect                     *
+ * .inClassEx        # .ice                        *
+ * .macUsers         # .mac                        *
+ * .homework         # .hw     (for HW/data cases) *
+ * .searchWebs       # .sw                         *
+ * .watchVideo       # .wv                         *
+ *-------------------------------------------------*
+ * >.ice             # see a list of ice           *
+ * >.uu              # back to utilities           *
+ * >.cf              # back to main menu           *
+ *-------------------------------------------------*
+";.zutilities4()}
+
+
+.zutilities4<-function(){
+cat(
+" 
+ *-------------------------------------------------*
+ * Utilities        -short-cut --                  *
+ *-------------------------------------------------*
+ * .allChapters      # .all                        *
+ * .calendar         # .cal                        *
+ * .datacases        # .dd .hw (for HW/data cases) *
+ * .downloadChapter  # .dc                         *
+ * .effectYan        # .effect                     *
+ * .inClassEx        # .ice                        *
+ * .macUsers         # .mac                        *
+ * .homework         # .hw     (for HW/data cases) *
+ * .searchWebs       # .sw                         *
+ * .watchVideo       # .wv                         *
+ *-------------------------------------------------*
+ * >.ice             # see a list of ice           *
+ * >.uu              # back to utilities           *
+ * >.cf              # back to main menu           *
+ *-------------------------------------------------*
+")}
+
+
+.utilities5<-function(){
+"
+ *-------------------------------------------------*
+ * Utilities        -short-cut --                  *
+ *-------------------------------------------------*
+ * .allChapters      # .all                        *
+ * .calendar         # .cal                        *
+ * .datacases        # .dd .hw (for HW/data cases) *
+ * .downloadChapter  # .dc                         *
+ * .effectYan        # .effect                     *
+ * .inClassEx        # .ice                        *
+ * .macUsers         # .mac                        *
+ * .homework         # .hw     (for HW/data cases) *
+ * .searchWebs       # .sw                         *
+ * .watchVideo       # .wv                         *
+ *-------------------------------------------------*
+ * >.ice             # see a list of ice           *
+ * >.uu              # back to utilities           *
+ * >.cf              # back to main menu           *
+ *-------------------------------------------------*
+";.zutilities5()}
+
+
+.zutilities5<-function(){
+cat(
+" 
+ *-------------------------------------------------*
+ * Utilities        -short-cut --                  *
+ *-------------------------------------------------*
+ * .allChapters      # .all                        *
+ * .calendar         # .cal                        *
+ * .datacases        # .dd .hw (for HW/data cases) *
+ * .downloadChapter  # .dc                         *
+ * .effectYan        # .effect                     *
+ * .inClassEx        # .ice                        *
+ * .macUsers         # .mac                        *
+ * .homework         # .hw     (for HW/data cases) *
+ * .searchWebs       # .sw                         *
+ * .watchVideo       # .wv                         *
+ *-------------------------------------------------*
+ * >.ice             # see a list of ice           *
+ * >.uu              # back to utilities           *
+ * >.cf              # back to main menu           *
+ *-------------------------------------------------*
+")}
+
+
+
