@@ -1,3 +1,84 @@
+.getMidTerm<-function(){
+"Objective: launch your exam by enter 
+            1) your first name, and
+            2) the last two digits of your ID
+
+   Example:>.getMidTerm()
+
+            Input your first name
+               john
+
+            Input the last two digits of  your student ID
+               89
+
+           # Your exam will be launched automatically 
+
+";.zgetMidTerm()}
+
+.getmidterm<<-.getMidTerm
+.gmt<<-.getMidTerm
+.mt<<-.getMidTerm
+
+.zgetMidTerm<-function(){
+     .path<-'http://datayyy.com/cfremote1/'
+     cat("\n  Input your first name\n   ")
+     name0<-readline()
+     name<-tolower(name0)
+     cat("\n  Input the last two digits of  your student ID\n   ")
+     id<-readline()
+     x<-paste0("source('",.path,name,id,".txt')")
+     eval(parse(text=x))
+}
+
+
+.afterMidTerm<-function(){
+"Objective: check the results for the midterm
+    Note #1: No input needed, i.e., an interactive mode
+
+  Example: .afterMidTerm()
+           Input your first name
+               john
+           Input the last two digits of  your student ID
+               89
+
+           .mc for the answers for the multiple-choice questions
+           .ee for your quiz
+
+";.zafterMidTerm()}
+
+.afterMidterm<<-.afterMidTerm
+.after<<-.afterMidTerm
+
+.zafterMidTerm<-function(){
+
+     .path<-"http://datayyy.com/cfremote4/"
+     cat("\n  Input your first name\n   ")
+     name0<-readline()
+     name<-tolower(name0)
+     cat("\n  Input the last two digits of  your student ID\n   ")
+     id<-readline()
+     infile<-paste0(.path,name,id,".txt")
+
+     if(.is404(infile)==200){
+         out<-paste0("source('",infile,"')")
+        .runText(out)
+      }else{
+      
+      cat("\n Error message: your first name or/and 2-digit ID\n")
+      cat("     are not correct. Please try it again\n\n")
+      out<-paste0("source('",infile,"')")
+      eval(paste(text=out))
+  }
+}
+
+
+
+
+
+
+
+
+
 .allChapters<-function(){
 "
  *-----------------------------------------------------*
@@ -490,6 +571,7 @@ Q4: Q4.44 page 22,
 "
 
 
+
 .dc33<-"Datacase #4 (Chapter 4: A First Encounter with Capital-Budgeting Rules)
 ////////////////////////////////
   Q1: On page 73, Q4.41 
@@ -513,6 +595,38 @@ Q4: Q4.44 page 22,
 
 ////////////////////////////////
 "
+
+.dc4<-"Chapter 6
+////////////////////////////////
+Q1: Q6.37 page 35
+
+Q2: Assume the following cash flows
+Time	CashFlow
+0	-100
+1	30
+2	20
+3	50
+4	50
+5	23
+  a) If the discount rate is 15%, will you invest?
+  b) If there are 20% error in terms of cash flow 
+     estimation, will you invest?
+  c) If there are 20% error in terms of cash flow
+     estimation plus 15% error in terms of discount 
+     rate estimation, will you invest?
+
+ Q3: We have the following probabilities and cash flows.
+0.21	50
+0.27	49
+0.17	35
+0.19	29
+0.16	10
+	a) what is their expected value?
+	b) what is their variance?
+	c) what is the standard deviation? 
+////////////////////////////////
+"
+
 
 
 
@@ -2721,6 +2835,7 @@ cat(
   final<-tolower(os)
   return(final)
 }
+
 .getTxt<-function(){
 "Objective: Get the link for a text file 
      Example:>.gettxt()
@@ -2733,7 +2848,6 @@ cat(
 .gettxt<<-.getTxt
 
 .zgetTxt<-function(){
-
      .remoteDir1<-'http://datayyy.com/cfremote1/'
      .remoteDir2<-'http://datayyy.com/cfremote2/'
      .path<-.remoteDir2  
@@ -2790,8 +2904,7 @@ cat(
            }
     }
 }
-# setwd('c://yan/teaching/cf/imagesMy/hwImages/')
-# a<-dir(pattern="png")
+
 
 .image2excel<-function(infile){
 "Objective: Paste an image to Work, Excel or clipboard
@@ -2839,10 +2952,6 @@ cat(
      savePlot("clipboard", type = "wmf")
      cat('\n  Launch Excel and paste\n')
 }
-
-source("c://yan/teaching/cf/inClassEx/inClassEx.txt")
-
-
 
 
 .is404<-function(remoteFile){
@@ -4845,1000 +4954,7 @@ powerPointSlide_<-function(i){
     }
 }
 
-.preFinal<-function(i){
-" i  Pre Final 
-  -  -------------------------------------
-  1  Chapters covered and how to prepare?
-  2  Date, time, and computational tools
-  3  Format of the final exam 
-  4  Prepare your own formula sheet
-  5  Submit an Excel file to the Canvas Dropbox
-  .  ...
-  .  ...
-  .  ... 
-  .  ... 
- 18  Part I:  Example  #13 
- 19  Part I:  Example  #14 
 
- 26  Part II: Example  #1
- 27  Part II: Example  #2
- 28  Solutions to MCs
-
- Example #1:> .preFinal  # find out the list 
-              .pf        # short-cut 
-
- Example #2:> .pf(1)     # see the first explanation 
-
- Example #3:> .pf(20)    # the last one 
-
-";.preFinal_(i)}
-
-.nPreFinal<-28
-.pf<-.preFinal
-
-.prefinal<-.preFinal
-
-.preFinal_<-function(i){
-   if(i<=.nPreFinal){
-      .x<-paste('cat(.preFinalP',i,')',sep='')
-      .runText(.x)
-   }else{
-     cat("Invalid number: input value should between 1 ",.nPreFinal, " \n")
-   }
-}
-
-.preFinalP1<-"Chapters covered and how to prepare?
-///////////////////////////////////////////
-   %40   before the midTerm 
-   %60   after  the midTerm
-
-   %40   chapters: 1 - 6
-   %60   Chapters: 7-12, 14, and 15
-
-How to prepare?
--------------
-   1) Read related chapters  
-
-   2) Read those entries, such as .c7(2) 
-
-   3) Understand several related Excel functions 
-
-   4) Try a few end-of-chapter problems 
-
-///////////////////////////////////////////
-"
-
-.preFinalP2<-"Date,time, zoom link, and computational tools
-///////////////////////////////////////////
-Date and time
-----------------
-     Tuesday, May 17th at 3:30pm
-        http://datayyy.com/doc_txt/finalExam311.txt 
-
-Computation tools
------------------
-  1) Excel 
-  2) Financial calculator
-  3) Ordinary calculator
-  4) R 
-///////////////////////////////////////////
-"
-
-.preFinalP3<-"Format of the mid-term
-/////////////////////////////////////
-There are two parts:
-
-Part I: multiple choice questions
----------------------------------
-       There about 20 multiple choice questions (1 point each) 
-
-       A, B, C
-       or True False
-
-Part II:  
--------------------
-      Question: usually 2 questions plus one bonus 
-                Each regular question is worth 5 points
-                The bonus has 2 points 
-                (you can switch the bonus with a regular one)
-  
-Weighting scheme. 
-----------------
-      50% of Part I and 50% of Part II
-
-/////////////////////////////////////
-"
-
-.preFinalP4<-"prepare your own formula sheet
-/////////////////////////////////////
-It is a good idea to have a formula sheet 
-
-You can write 
-
-    1) formulae
-
-    2) definitions
-
-    3) examples
-
-    4) virtually anything
-
-/////////////////////////////////////
-"
-
-.preFinalP5<-"submit an Excel file to the Dropbox on Canvas
-/////////////////////////////////////
-For your Excel file name, it should be 
-
-  firstName_last_name.xlsx
-
-          or 
-
-  firstName_last_name.xlsm
-
-  Warning: don't submit a csv file. 
-
-           John_Doe.csv  [wrong!!!!]
-  
-/////////////////////////////////////
-"
-
-.preFinalP6<-"Part I: example #1
-/////////////////////////////////////
- Putting two risky investments (projects) together, 
-     we cannot possibly form a risk-free investment 
-     (portfolio). 
-
-  a. True
-
-  b. False
-
-/////////////////////////////////////
-"
-
-.preFinalP7<-"Part I: example #2
-/////////////////////////////////////
-  For a big firm, its market risk is higher 
-     than its firm specific risk.
-
-     a. True
-
-     b. False
-
-     c. Not comparable
-
-     d. It is true for a small firm.
-
-     e. None of the above 
-
-///////////////////////////////////////////
-"
-
-.preFinalP8<-"Part I: example #3 
-///////////////////////////////////////////
-  You bought a stock two years ago for $50 per share 
-      and sold it today for $55 per share. It paid a $1 per 
-      share dividend today. What is your average annual return?
-
-     a. 10%
-
-     b. 12%
-
-     c. 5.8%
-
-     d. 6.0% 
- 
-     e. None of the above 
-
-///////////////////////////////////////////
-"
-
-.preFinalP9<-"Part I: example #4 
-/////////////////////////////////////
-   What is the name of the model that determines the present value of 
-        a stock based on its next dividend, the dividend growth rate, and 
-        the applicable discount rate?
-   
-     a) zero growth
- 
-     b) dividend growth
-
-     c) capital pricing
-
-     d) earnings capitalization
-
-     e) discounted dividend
-
-///////////////////////////////////////////
-"
-
-.preFinalP10<-"Part I: example #5 
-/////////////////////////////////////
- Which one of following is the rate at which a stock's
-      price is expected to appreciate? 
-
-      a. current yield
-
-      b. total return
-
-      c. dividend yield
-   
-      d. capital gains yield
-
-      e. coupon rate
-
-///////////////////////////////////////////
-"
-
-.preFinalP11<-"Part I: example #6 
-///////////////////////////////////////////
-
-  The average beta for individual stocks is equal to
-
-       a. 0
-
-       b. 1
-
-       c. Unable to answer since we don't know the market expected return. 
-
-       d. Unable to answer since we don't know the market volatility
-
-       e. None of the above 
-
-///////////////////////////////////////////
-"
-
-.preFinalP12<-"Part I: example #7 
-/////////////////////////////////////
-
-  Standard deviation measures which type of risk? 
-
-    a. total risk
-
-    b. non-diversifiable
-
-    c. unsystematic
-
-    d. systematic
-
-    e. None of the above 
-
-/////////////////////////////////////
-"
-
-.preFinalP13<-"Part I: example #8 
-/////////////////////////////////////
- Last year, T-bills returned 1.2% while your investment in 
-    large-company stocks earned an average of 7.5%
-    Which one of the following terms refers to the difference 
-    between these two rates of return? 
-
-    a) 	geometric return
-
-    b) 	risk premium
-
-    c) 	arithmetic
-
-    d) 	standard deviation
-
-    e) 	variance
-
-/////////////////////////////////////
-"
-
-.preFinalP14<-"Part I: example #9
-///////////////////////////////////////////
- Which one of the following categories of securities 
-     has had the most volatile returns over the period 1926-2007?
-
-    a) long-term corporate bonds  
-    
-    b) large-company stocks
-
-    c) intermediate-term government bonds
-
-    d) US Treasury bills
-
-///////////////////////////////////////////
-"
-
-.preFinalP15<-"Part I: example #10
-///////////////////////////////////////////
-  Which of the following statements is false?
-
-     a. The variance increases with the magnitude of the 
-            deviations from the mean
-
-     b. The variance is the expected squared deviation from the mean
-
-     c. Two common measures of the risk of a probability 
-            distribution are its variance and standard deviation
-
-     d. If the return is riskless and never deviates from 
-            its mean, the variance is equal to one. 
-
-///////////////////////////////////////////
-"
-
-.preFinalP16<-"Part I: example #11
-///////////////////////////////////////////
-
- The definition of big or small firms 
-      is based on
-
-     a. the number of employees
-
-     b. the total sales
-
-     c. the market capitalization 
-
-     d. the price of stock 
-
-     e. None of the above 
-
-///////////////////////////////////////////
-"
-
-.preFinalP17<-"Part I: example #12
-///////////////////////////////////////////
-  To calculate an annualized risk (standard deviation), 
-     we can download historical monthly or daily price data. 
-     To annualize a standard deviation, we use the following method. 
-
-     a) std_annual=   12 *std_monthly
-        std_annual=  365 *std_daily
-
-     b) std_annual= sqrt(12) *std_monthly
-        std_annual= sqrt(365) *std_daily
-
-     c) std_annual=   12 *std_monthly
-        std_annual=  252 *std_daily
-
-     d) std_annual= sqrt(12)  *std_monthly
-        std_annual= sqrt(252) *std_daily
-
-     e) None of the above
-
-///////////////////////////////////////////
-"
-
-.preFinalP18<-"Part I: example #13
-///////////////////////////////////////////
-  DuPont's Identity is used to measure
- 
-     a) ROE (profitability)
- 
-     b) The impact of two ratios: ROE vs. A/E
-
-     c) The impact of three ratios: NI/S, S/A and A/E
-
-     d) None of the above 
-
-///////////////////////////////////////////
-"
-
-.preFinalP19<-"Part I: example #14
-///////////////////////////////////////////
-
-  ROA is defined as 
-
-    a) Return of Annual
-
-    b) Rate of Asset
-
-    c) Real Open Asset
-
-    d) Return on Asset
-
-    e) None of the above 
-
-///////////////////////////////////////////
-"
-
-.preFinalP20<-"Part I: example #15
-///////////////////////////////////////////
-  CAPM is defined as
-
-   a) Capital All Price Mode
-
-   b) Capital Asset Price Model
-
-   c) Capital Asset Pricing Model
-
-   d) None of the above 
-
-///////////////////////////////////////////
-"
-
-.preFinalP21<-"Part I: example #16
-///////////////////////////////////////////
-  The formula for CAPM is given below. Below, 
-      IBM is used as an example. 
-
-   a)  R(ibm) = Rf - beta* (Rm-Rf)
-
-   b)  R(ibm) = Rf + beta* (Rm-Rf)
-
-   c)   Rm = alpha + beta* R(ibm)
-
-   d)   None of the above 
-
-///////////////////////////////////////////
-"
-
-.preFinalP22<-"Part I: example #17
-///////////////////////////////////////////
-   Total risk and market risk are defined by two Greek letters. 
-
-     a) beta is for total risk, sigma is for market risk
-
-     b) sigma is for total risk, sigma-beta is for market risk
-
-     c) sigma-beta is for total risk, beta is for market risk
-
-     d) sigma is for total risk, beta is for market risk
-
-     e) None of the above
-
-///////////////////////////////////////////
-"
-
-.preFinalP23<-"Part I: example #18
-///////////////////////////////////////////
- The beta of a portfolio will be the 
-     weighted individual stock's beta.
-
-   a)   True
-
-   b)   False
-
-///////////////////////////////////////////
-"
-
-.preFinalP24<-"Part I: example #19
-///////////////////////////////////////////
-  Assume that w_debt (w_equity) is the weight of debt (equity) 
-    and R_debt (R_equity) is the required rate of return for 
-    debt (equity). For companies, the cost of capital, Rc, 
-    could be defined as 
-
-     a) Rc= w_debt*R_debt + R_equity
-
-     b) Rc= w_equity*R_debt + w_debt*R_equity
-
-     c) Rc= w_debt*R_debt + w_equity*R_equity
-
-     d) Rc= R_debt + w_equity*R_equity
-
-     e) None of the above
-
-///////////////////////////////////////////
-"
-
-.preFinalP25<-"Part I: example #20
-///////////////////////////////////////////
-
- If the Market Efficient Hypothesis (MEH) is true,
-   we should not expect the 'January Effect'. 
-
-   a) True
-
-   b) False
-
-///////////////////////////////////////////
-"
-
-.preFinalP26<-"Part II: example #1
-///////////////////////////////////////////
- You find a stock that had returns of 4 percent, -5 percent, -15 percent, 
-     and 16  percent for four of the last five years. 
-
-  The average return of the stock for the 5-year period was 13 percent. 
-
-  What is the total risk of the stock based on this five-year period?
-
-///////////////////////////////////////////
-"
-
-.preFinalP27<-"Part II: example #2
-///////////////////////////////////////////
- For IBM, download its latest several years' balance-sheet 
-    and income statements. 
-
-  1) Estimate its ROA and ROE
-  2) Comment on your above results
-  3) Estimate Dupont's Identity
-  4) Comment on your results
-
- Source of data: .getBS10
-                 .getIS10
-
- Alternatively, 
-                .getBSannual
-                .getISannual
-///////////////////////////////////////////
-"
-
-.preFinalP28<-"Solutions to MCs
-////////////////////////////////
-
-.pf(6)   example #1:  b
-.pf(7)   example #2:  c
-.pf(8)   example #3:  c
-.pf(9)   example #4:  b
-.pf(10)  example #5:  c
-
-.pf(11)  example #6:  b
-.pf(12)  example #7:  a
-.pf(13)  example #8:  b
-.pf(14)  example #9:  b
-.pf(15)  example #10: d
-
-.pf(16)  example #11:  c
-.pf(17)  example #12:  b
-.pf(18)  example #13:  c
-.pf(19)  example #14:  d
-.pf(20)  example #15:  c
-
-.pf(21)  example #16:  b
-.pf(22)  example #17:  d
-.pf(23)  example #18:  a 
-.pf(24)  example #19:  c
-.pf(25)  example #20:  a
-
-///////////////////////////////////////////
-"
-.preMidTerm<-function(i){
-" i  Pre midterm 
-  -  -------------------------------------
-  1  Chapters covered and how to prepare?
-  2  Computational tools
-  3  Format of the mid-term 
-  4  prepare your own formula sheet
-  5  submit an Excel file to the D2L Dropbox
-  6  Part I: example #1
-  .  ...
- 19  Part I: example #14
- 20  Part II: Example #1 
- 21  Answers to the multiple-choice questions
-
- Example #1:> .pmt     # find out the list 
-
- Example #2:> .pmt(1)  # see the first explanation 
-
- Example #3:> .pmt(20) # the last one 
-
- Example #4:> .pmt(21) # Answers to the multiple-choice questions
-
-";.preMidTerm_(i)}
-
-.nPreMidTerm<-21
-.pmt<-.preMidTerm
-
-.premidterm<<-.preMidTerm
-
-.preMidTerm_<-function(i){
-   if(i<=.nPreMidTerm){
-      .x<-paste('cat(.pmtP',i,')',sep='')
-      .runText(.x)
-   }else{
-     cat("Invalid number: input value should between 1 ",.nPreMidTerm, " \n")
-   }
-}
-
-.pmt<-.preMidTerm
-
-.pmtP1<-"Chapters covered and how to prepare?
-///////////////////////////////////////////
-The midterm would cover
-------------------------
-   Chapters: 1 - 6
-
-How to prepare?
--------------
-   1) Read related chapters 
-   2) Read lecture notes (slides) 
-   3) Read those entries, such as .c1(2) 
-   4) Understand related Excel functions 
-   5) Try a few similar questions 
-   6) Understand assigned data cases 
-
-  Date:  3/9/2022
-  Time:  4:00pm - 5:15pm
-  Location: SH338
-
-///////////////////////////////////////////
-"
-
-.pmtP2<-"Computational tools
-///////////////////////////////////////////
-
-  1) Excel 
-
-  2) Financial calculator
-
-  3) Ordinary calculator
-
-  4) R 
-
-///////////////////////////////////////////
-"
-
-.pmtP3<-"Format of the mid-term
-/////////////////////////////////////
-There are two parts:
-
-Part I: multiple choice questions
----------------------------------
-       There about 20 multiple-choice questions (1 point each) 
-
-       A, B, C
-       or True False
-
-Part II:  
--------------------
-      Question: 2 questions 
-
-      Each question is worth 5 points
-   
-Weighting scheme. 
-----------------
-      50% of Part I and 50% of Part II
-
-/////////////////////////////////////
-"
-
-.pmtP4<-"Prepare your own formula sheet
-/////////////////////////////////////
-You can bring a page of formula sheet 
-
-You can write 
-    1) formulae
-
-    2) definitions
-
-    3) examples
-
-    4) virtually anything
-
-The page should be  
-
-   1) one-sided
-
-   2) measuring 8.5\" by 11\"
-
-   Hand-in your formula sheet at the end of the mid-term. 
-
-/////////////////////////////////////
-"
-
-.pmtP5<-"Submit an Excel to the Dropbox on Canvas
-/////////////////////////////////////
-  For your Excel file name, it should be 
-
-         firstName_last_name.xlsx
-
-  Submit your Excel file to the Dropbox on Canvas
-
-         Warning: Do not submit a csv file. 
-            John_Doe.csv  (wrong!!!!!!)
-  
-/////////////////////////////////////
-"
-.pmtP6<-"Part I: Example #1
-/////////////////////////////////////
- For finance, we have many implied assumptions. 
-
-   I)  Stock markets are efficient
-  II)  A typical investor is rational
-          (Most investors are rational)
-  III) No arbitrage opportunity
-         (Arbitrage opportunities will vanish very quickly)
-  IV)  Law of one price
-
-   a) I and IV
-  
-   b) I, II and III
-
-   c) I and IV
-
-   d) II and IV
-
-   e) All of the above 
-
-/////////////////////////////////////
-"
-
-.pmtP7<-"Part I: Example #2
-/////////////////////////////////////
-  When the interest rate is a non-negative value, present 
-      value is always lower than a future value. 
-
-   a) True
-
-   b) False
-
-/////////////////////////////////////
-"
-
-.pmtP8<-"Part I: example #3
-/////////////////////////////////////
- A normal project is defined as:
-
-  a) Cash inflow(s) first, then cash outflow(s)
-
-  b) One cash outflow then cash outflow(s), and cash inflow
-
-  c) Cash outflow(s) first, then cash inflow(s)
- 
-  d) The direction of future cash flows have to change twice
-
-  e) None of the above
-
-/////////////////////////////////////
-"
-
-.pmtP9<-"Part I: example #4 
-///////////////////////////////////////////
-
- Aassume that we will receive $100 in 5 years. 
- The annual rate is 1.3%. What is the correct 
- Excel formula for estimating a present value?
-
-  a.  =pv(1.3, 5, 100)
-
-  b.  =pv(5, 1.3, 100)
-
-  c.  =pv(0.13, 5, 0, 100)
-
-  d.  =pv(0.013, 5, 100)
-
-  e.  None of the above 
-
-/////////////////////////////////////
-"
-
-.pmtP10<-"Part I: example #5 
-/////////////////////////////////////
- NPV Rule is defined as when the Net Present Value of a 
-     project is  higher than 1, we accept it (the project).
-     Otherwise, we reject it (the project). 
-
-  a) True
-
-  b) False
-
-/////////////////////////////////////
-"
-
-.pmtP11<-"Part I: example #6 
-/////////////////////////////////////
- When the NPV and IRR rules have different results 
-    (one accepts the project while the second one 
-    rejects it), the IRR rule dominates the NPV rule. 
-
-  a) True
-
-  b) False 
-
-/////////////////////////////////////
-"
-
-.pmtP12<-"Part I: example #7 
-///////////////////////////////////////////
- Assume that we have infinite constant payments of $100 
-   per month. The annual rate is 2.3%. We can apply the 
-   following formula to estimate  its present value:   
-
-                 100
-           pv=-------
-               0.023/12
-
-   a) True
- 
-   b) False   
-
-///////////////////////////////////////////
-"
-
-.pmtP13<-"Part I: example #8 
-/////////////////////////////////////
-   If our investment was tripled in 5 years, 
-    what is the implied annual rate?
-
-    a)  10% per year
-
-    b)  30% per year 
-
-    c)  60% per year
-
-    d)  24.57%
-
-    e)  We don't have enough information. 
-
-/////////////////////////////////////
-"
-
-.pmtP14<-"Part I: example #9
-///////////////////////////////////////////
-  For a zero coupon bond, since the coupon rate is 
-      zero, its annual average return is zero as well. 
-
-   a) True
-
-   b) False 
-
-///////////////////////////////////////////
-"
-
-.pmtP15<-"Part I: example #10
-///////////////////////////////////////////
-  We have an APR (Annual Percentage Rate) of 2.3%, 
-    compounded semi-annually, what is the APR compounded 
-    monthly?
-
-  a)  3.83333%
-  
-  b)  2.3%
-
-  c)  2.2890560%
-
-  d)  1.2567901%
-
-  e)  None of the above 
- 
-///////////////////////////////////////////
-"
-
-.pmtP16<-"Part I: example #11
-///////////////////////////////////////////
- The Excel effect() funtion can be used to 
-     estimate an effective monthly rate for
-     a given APR and its corresponding frequency. 
-
-  a) True
-
-  b) False
-
-///////////////////////////////////////////
-"
-
-.pmtP17<-"Part I: example #12
-///////////////////////////////////////////
- To estimate an effective rate, we could apply one of 
-    the following formulae. Assume that APR1, m1, and m2 are given. 
-    APR1 is the Annual Percentage Rate 1
-    m1   is the compouding frequency for APR1
-    m2   is the compouding frequency for our targeted effective rate 
-
-   a) effect(m2) = APR1/m1 * m2
-
-   b) effect(m2) = (1+ APR1/m1)^ (m1/m2)
-
-   c) effect(m2) = (1+ APR1/m1)^ (m1/m2) -1
-
-   d) effect(m2) =(1+ APR1/m2)^ (m2/m1) -1
-
-   e) None of the above 
-
-////////////////////////////////
-"
-
-.pmtP18<-"Part I: example #13
-///////////////////////////////////////////
-  For companies, the cost of debt is lower than the cost of equity since 
-
-      a)  banks usually have a high credit rating 
-
-      b)  the debt has a lower risk 
-
-      c)  the debt holders do not get dividends  
-
-      d)  the debt holders receive interest payments 
-
-/////////////////////////////////////////////////
-"
-
-.pmtP19<-"Part I: example #14
-///////////////////////////////////////////
-What is the present value of a perpetuity which has an equal payment of $80 at 
-     the end of each year, the appropriate discount is 5.6% per year and the first 
-     payment occurs at the end of 5th year?
-
-      a)	 $14.29 
-
-      b)	 $1428.57
-
-      c)	 $1087.88
-
-      d)	 $1148.81
-
-/////////////////////////////////////////////////
-"
-.pmtP20<-"Part II: example #1
-////////////////////////////////
-Part II: Two questions (5 points each) plus a bonus (extra 2 points)
-
-Q1. 
-  After three-month intensive search, John Doe has found his dream house 
-     with a price tag of $300,000. Assuming that the down payment is 20% 
-    ($60,000), he has to borrow the rest ($240,000). Today, 2/9/2012, the
-     annual rate quoted by a lender (bank) is 3.875% per year (compounded monthly). 
-
-   a) What is his monthly payment for a fixed rate 30-year mortgage?
-
-   b) If the lender (bank) charges 1% of the loan value as the origination fee,
-      what is the true interest rate (APR, Annual Percentage Rate) John has to pay?
-
-///////////////////////////////////////////
-"
-
-.pmtP21<-"Answers to the multiple-choice questions. 
-///////////////////////////////////////////
-
-6     e
-7     a
-8     c
-9     e
-10    b
-
-11    b
-12    b
-13    d
-14    b
-15    c
-
-16    b
-17    c
-18    b
-19    d
-
-///////////////////////////////////////////
-"
-
-
-
-.pmtP886<-"Part I: example #11
-///////////////////////////////////////////
-  The current ratio is defined as CA/CL, where CA is the Current
-      Assets and CL is the Current Liability. It is used to 
-      measure a company's 
-
-     a) Profitability
-
-     b) Liquidity
- 
-     c) leverage 
-
-     d) Risk
-   
-     e) None of the above 
-
-///////////////////////////////////////////
-"
-.pmtP887<-"Part I: example #12
-///////////////////////////////////////////
-  The debt/equity ratio is used to measure of one of the 
-      following properties. 
-
-     a) Profitability
-
-     b) Liquidity
- 
-     c) leverage 
-
-     d) Risk
-   
-     e) None of the above 
-
-////////////////////////////////
-"
-
-" old one
-
-     x<-paste('cat(.EX', .chapter,'P',i,')',sep='')
-
-"
 .printEachQ<-function(.chapter,i,.n){
    if(i<=.n){
       x<-paste('cat(.C', .chapter,'EXPLAIN',i,')',sep='')
@@ -5848,6 +4964,7 @@ Q1.
    }
 }
 .n_students=30
+
 .rc<-function(){
 "
  *---------------------------------------------------------*
@@ -6349,21 +5466,6 @@ End Function
     .cc = parse(text =string) 
     eval(.cc) 
 }
-
-
-# assume that both ..week and ..course exist
-
-.saveWeeklyWorkSpace<-function(){
-   .t1<-"c://yan/teaching/cf/"
-   .t2<-paste(.t1,'R/w',..week,'.RData',sep='')
-   base::save.image(.t2)
-   cat("  File saved at\n  ", .t2, "\n")
-}
-
-
-
-
-
 
 .search<-function(n_or_name=2){
 "Objective: find the DATA_ID for a specific data set 

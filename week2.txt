@@ -1,6 +1,4 @@
-.path<<-'https://raw.githubusercontent.com/paulyxy/corporate-finance/main/'
-source(paste0(.path,'sourceAll.txt'))
-
+source('http://datayyy.com/cf/sourceAll.txt')
 
 .cf<-function(){
 "
@@ -31,12 +29,13 @@ cat("
  *------------------------------------------------------*
 ")}
 
-.whichHW<<-0
+.whichDatacase<<-1
+.whichHW<<-1
 
 .utilities<<-.utilities1
 .uu<-.utilities1
 
-.getdata<<-.getdata1
+.getdata<<-.getdata2
 .gd<<-.getdata
 
 .inClassEx<<-.inClassEx1
@@ -45,11 +44,12 @@ cat("
 
 .na<-"Not available "
 
-.c3<-.c4<-.c5<-.c6<-.c7<-.c8<-.c9<-.c10<-.c11<-.c12<-.c13<-.c14<-.c15<-.na
+.c3<-.c4<-.c5<-.na
+.c6<-.c7<-.c8<-.c9<-.c10<-.c11<-.c12<-.c13<-.c14<-.c15<-.na
 .c17<-.c18<-.na
 .c30<-.na
 
-.chapter4<-.chapter4<-.chapter5<-.na
+.chapter3<-.chapter4<-.chapter5<-.na
 .chapter6<-.chapter7<-.chapter8<-.chapter9<-.chapter10<-.na
 .chapter11<-.chapter12<-.chapter13<-.chapter14<-.chapter15<-.na
 .chapter17<-.chapter18<-.na
@@ -57,4 +57,3 @@ cat("
 
 .cls()
 .cf()
-

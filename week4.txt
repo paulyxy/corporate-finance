@@ -1,22 +1,19 @@
-.path<<-'https://raw.githubusercontent.com/paulyxy/corporate-finance/main/'
-source(paste0(.path,'sourceAll.txt'))
+source('http://datayyy.com/cf/sourceAll.txt')
 .cf<-function(){
 "
  *------------------------------------------------------*
  * FNCE311                        Spring 2023 by Yan    *
  *------------------------------------------------------*
- * .c1  Introduction           .c20 R basics (optional) *
+ * .c1  Introduction          .c20 R basics (optional)  *
  * .c2  Present value                                   *
- * .c3  Stock & Bond valuation: Perpetuity/Annuity      *
+ * .c3  Stock & Bond valuation: Annuities/perpetuities  *
  * .c4  Capital budgeting                               *
  *------------------------------------------------------*
- * >.c4      # go to chapter 4                          *
- * >.uu      # go to the utility menu                   *
- * >.cf      # back to this menu                        *
+ * >.c4       # go to chapter 4                         *
+ * >.uu       # go to the utility menu                  *
+ * >.cf       # back to this menu                       *
  *------------------------------------------------------*
-
 ";.cf_()}
-
 
 .cf_<-function(){
 cat("
@@ -24,38 +21,39 @@ cat("
  *------------------------------------------------------*
  * FNCE311                        Spring 2023 by Yan    *
  *------------------------------------------------------*
- * .c1  Introduction           .c20 R basics (optional) *
+ * .c1  Introduction          .c20 R basics (optional)  *
  * .c2  Present value                                   *
- * .c3  Stock & Bond valuation: Perpetuity/Annuity      *
+ * .c3  Stock & Bond valuation: Annuities/perpetuities  *
  * .c4  Capital budgeting                               *
  *------------------------------------------------------*
- * >.c4      # go to chapter 4                          *
- * >.uu      # go to the utility menu                   *
- * >.cf      # back to this menu                        *
+ * >.c4       # go to chapter 4                         *
+ * >.uu       # go to the utility menu                  *
+ * >.cf       # back to this menu                       *
  *------------------------------------------------------*
-
 ")}
+
+
+.whichDatacase<<-2
 
 .whichHW<<-2
 
-.utilities<<-.utilities1
-.uu<-.utilities1
+.utilities<<-.utilities4
+.uu<-.utilities4
 
-.getdata<<-.getdata1
+.getdata<<-.getdata3
 .gd<<-.getdata
 
-.inClassEx<<-.inClassEx1
+.inClassEx<<-.inClassEx4
 .ice<<-.inClassEx
-.n_InClassEx<-.n_InClassEx1
+.n_InClassEx<-.n_InClassEx4
 
 .na<-"Not available "
 
-.c3<-.c4<-.c5<-.c6<-.c7<-.c8<-.c9<-.c10<-.c11<-.c12<-.c13<-.c14<-.c15<-.na
+.c5<-.c6<-.c7<-.c8<-.c9<-.c10<-.c11<-.c12<-.c13<-.c14<-.c15<-.na
 .c17<-.c18<-.na
 .c30<-.na
 
-.chapter4<-.chapter4<-.chapter5<-.na
-.chapter6<-.chapter7<-.chapter8<-.chapter9<-.chapter10<-.na
+.chapter5<<-.chapter6<-.chapter7<-.chapter8<-.chapter9<-.chapter10<-.na
 .chapter11<-.chapter12<-.chapter13<-.chapter14<-.chapter15<-.na
 .chapter17<-.chapter18<-.na
 .chapter30<-.na

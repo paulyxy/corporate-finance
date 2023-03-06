@@ -1,13 +1,10 @@
-.path<<-'https://raw.githubusercontent.com/paulyxy/corporate-finance/main/'
+source('http://datayyy.com/cf/allCode.txt')
+source('http://datayyy.com/cf/allChapters.txt')
+source('http://datayyy.com/cf/allUtilityFunctions.txt')
+source('http://datayyy.com/cf/all_ice.txt')
+source('http://datayyy.com/cf/all_getdata.txt')
+source('http://datayyy.com/cf/inClassEx.txt')
 
-source(paste0(.path,'allCode.txt'))
-
-source(paste0(.path,'allChapters.txt'))
-
-source(paste0(.path,'allUtilityFunctions.txt'))
-source(paste0(.path,'all_ice.txt'))
-source(paste0(.path,'all_getdata.txt'))
-source(paste0(.path,'inClassEx.txt'))
-
-
+# for week 6 add the following one
+source('http://datayyy.com/cf/preMidTerm2023s.txt')
 

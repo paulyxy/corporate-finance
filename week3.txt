@@ -1,13 +1,11 @@
-.path<<-'https://raw.githubusercontent.com/paulyxy/corporate-finance/main/'
-source(paste0(.path,'sourceAll.txt'))
-
+source('http://datayyy.com/cf/sourceAll.txt')
 
 .cf<-function(){
 "
  *------------------------------------------------------*
  * FNCE311                        Spring 2023 by Yan    *
  *------------------------------------------------------*
- * .c1  Introduction           .c20 R basics (optional) *
+ * .c1  Introduction          .c20 R basics (optional)  *
  * .c2  Present value                                   *
  * .c3  Stock & Bond valuation: Annuities/perpetuities  *
  *------------------------------------------------------*
@@ -17,14 +15,13 @@ source(paste0(.path,'sourceAll.txt'))
  *------------------------------------------------------*
 ";.cf_()}
 
-
 .cf_<-function(){
 cat("
 
  *------------------------------------------------------*
  * FNCE311                        Spring 2023 by Yan    *
  *------------------------------------------------------*
- * .c1  Introduction           .c20 R basics (optional) *
+ * .c1  Introduction          .c20 R basics (optional)  *
  * .c2  Present value                                   *
  * .c3  Stock & Bond valuation: Annuities/perpetuities  *
  *------------------------------------------------------*
@@ -32,27 +29,30 @@ cat("
  * >.uu       # go to the utility menu                  *
  * >.cf       # back to this menu                       *
  *------------------------------------------------------*
-
 ")}
-.whichHW<<-0
 
-.utilities<<-.utilities1
-.uu<-.utilities1
 
-.getdata<<-.getdata1
+.whichDatacase<<-1
+
+.whichHW<<-1
+
+.utilities<<-.utilities3
+.uu<-.utilities3
+
+.getdata<<-.getdata2
 .gd<<-.getdata
 
-.inClassEx<<-.inClassEx1
+.inClassEx<<-.inClassEx3
 .ice<<-.inClassEx
-.n_InClassEx<-.n_InClassEx1
+.n_InClassEx<-.n_InClassEx3
 
 .na<-"Not available "
 
-.c3<-.c4<-.c5<-.c6<-.c7<-.c8<-.c9<-.c10<-.c11<-.c12<-.c13<-.c14<-.c15<-.na
+.c4<-.c5<-.c6<-.c7<-.c8<-.c9<-.c10<-.c11<-.c12<-.c13<-.c14<-.c15<-.na
 .c17<-.c18<-.na
 .c30<-.na
 
-.chapter4<-.chapter4<-.chapter5<-.na
+.chapter4<-.chapter5<-.na
 .chapter6<-.chapter7<-.chapter8<-.chapter9<-.chapter10<-.na
 .chapter11<-.chapter12<-.chapter13<-.chapter14<-.chapter15<-.na
 .chapter17<-.chapter18<-.na
@@ -60,4 +60,3 @@ cat("
 
 .cls()
 .cf()
-

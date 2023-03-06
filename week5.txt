@@ -1,6 +1,4 @@
-.path<<-'https://raw.githubusercontent.com/paulyxy/corporate-finance/main/'
-source(paste0(.path,'sourceAll.txt'))
-
+source('http://datayyy.com/cf/sourceAll.txt')
 .cf<-function(){
 "
  *------------------------------------------------------*
@@ -36,6 +34,8 @@ cat("
  *------------------------------------------------------*
 ")}
 
+
+.whichDatacase<<-3
 
 .whichHW<<-3
 

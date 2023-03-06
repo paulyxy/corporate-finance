@@ -1,4 +1,4 @@
-source('http://datayyy.com/cf2/sourceAll.txt')
+source('http://datayyy.com/cf/sourceAll.txt')
 
 .cf<-function(){
 "
@@ -37,11 +37,13 @@ cat("
  *------------------------------------------------------*
 ")}
 
-
+.whichDatacase<<-4
 .whichHW<<-3
 
-.utilities<<-.utilities5
-.uu<-.utilities5
+.utilities<<-.utilities6
+.uu<-.utilities
+
+
 
 .getdata<<-.getdata2
 .gd<<-.getdata
